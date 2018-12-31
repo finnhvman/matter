@@ -1,0 +1,93 @@
+.matter-button-text {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+    padding: 0 8px;
+    min-width: 64px;
+    height: 36px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: transparent;
+    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+}
+
+.matter-button-text::-moz-focus-inner {
+    border: none;
+}
+
+/* Overlay */
+.matter-button-text::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Ripple */
+.matter-button-text::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    padding: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: currentColor;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1) ;
+    transition: opacity 1s, transform 0.5s;
+}
+
+/* Hover, Focus */
+.matter-button-text:hover::before {
+    opacity: 0.04;
+}
+
+.matter-button-text:focus::before {
+    opacity: 0.12;
+}
+
+.matter-button-text:hover:focus::before {
+    opacity: 0.16;
+}
+
+/* Active */
+.matter-button-text:active::after {
+    opacity: 0.16;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0s;
+}
+
+/* Disabled */
+.matter-button-text:disabled {
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    background-color: transparent;
+    cursor: initial;
+}
+
+.matter-button-text:disabled::before {
+    opacity: 0;
+}
+
+.matter-button-text:disabled::after {
+    opacity: 0;
+}
