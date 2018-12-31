@@ -1,4 +1,4 @@
-![Matter "M" logo](../master/docs/m.svg)
+<img src="../master/docs/m.svg" alt="Matter M logo" width="90" height="90">
 
 # matter
 Material Components in Pure CSS
