@@ -1,11 +1,13 @@
 <img src="../master/docs/m.svg" alt="Matter M logo" width="90" height="90">
 
-# matter
+# Matter
 Material Components in Pure CSS
 
 This project is a work in progress, I am open-sourcing [Pure CSS Material Components](https://codepen.io/finnhvman/full/zMKagM).
 
 ## Get Started
+
+Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
 1. Download `matter.css` from `dist` folder
 2. Include it in your project or build pipeline
@@ -45,6 +47,6 @@ More components are coming, see below!
 
 ## Contact
 
-If you have questions, feedback or anything to share related the project, then you can contact me via:
+If you have questions, feedback or anything to share related to the project, then you can contact me via:
 - Twitter [@finnhvman](https://twitter.com/finnhvman)
 - or [submit an issue](https://github.com/finnhvman/matter/issues)
