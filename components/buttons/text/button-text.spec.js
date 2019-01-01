@@ -120,17 +120,10 @@ describe('Text Button', () => {
             });
 
             it('should have uppercase caption text', () => {
-                const boundingClientRect = {
-                    x: [49, 55],
-                    y: [26, 29],
-                    width: [223, 237],
-                    height: [31, 32]
-                };
-
                 const caption = context.getImageData3x(4, 4, width - 8, height - 8);
 
                 expect(button.innerText).toBe('XMAS TREE');
-                expect(caption).toResembleText(boundingClientRect, suite.textColor, suite.bodyColor);
+                expect(caption).toResembleText('XMAS TREE', suite.textColor, suite.bodyColor);
             });
 
             it(`should have 4px round corners`, () => {

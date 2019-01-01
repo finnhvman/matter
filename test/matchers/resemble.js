@@ -1,4 +1,7 @@
 beforeEach(() => {
+    const SPACE_LIMIT = 6;
+    const WEIGHT_LIMIT = 1;
+
     const match = (expected, actual) => {
         if (typeof expected === 'number') {
             return expected === actual;
@@ -9,11 +12,30 @@ beforeEach(() => {
         }
     };
 
+    /**
+     * @return
+     *   - (space) match
+     *
+     * r - red mismatch
+     * g - green mismatch
+     * b - blue mismatch
+     * a - alpha mismatch
+     *
+     * c - at least two of r, g, or b
+     * x - at least one of r, g, or b and a
+     */
     const matchPixel = (expected, r, g, b, a) => {
-        return match(expected.r, r)
-            && match(expected.g, g)
-            && match(expected.b, b)
-            && match(expected.a, a);
+        let errors = match(expected.a, a) ? '' : 'a';
+        errors += match(expected.r, r) ? '' : 'r';
+        errors += match(expected.g, g) ? '' : 'g';
+        errors += match(expected.g, g) ? '' : 'b';
+        if (errors === '') {
+            return ' ';
+        } else if (errors.length === 1) {
+            return errors;
+        } else {
+            return errors.includes('a') ? 'x' : 'c';
+        }
     };
 
     const matchRect = (expected, actual) => {
@@ -32,7 +54,7 @@ beforeEach(() => {
                 for (let x = 0; x < width; x++) {
                     for (let y = 0; y < height; y++) {
                         const pixelIndex = width * y * 4 + x * 4;
-                        const currentPassing = matchPixel(expected,
+                        const currentPassing = ' ' === matchPixel(expected,
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
                         if (currentPassing) {
                             count++;
@@ -42,86 +64,71 @@ beforeEach(() => {
 
                 const passing = area / 2 < count;
 
-                const result = {
-                    pass: passing
+                return {
+                    pass: passing,
+                    message: `Matched ${count} out of ${area}`
                 };
-
-                if (!passing) {
-                    result.message = `Matched ${count} out of ${area}`;
-                }
-
-                return result;
             }
         }),
         toResembleText: () => ({
             compare: (actual, expected, textColor, bodyColor) => {
                 const { data, width, height } = actual;
-
-                let bounds;
-                for (let x = 0; x < width; x++) {
-                    let empty = true;
-                    for (let y = 0; y < height; y++) {
-                        const pixelIndex = width * y * 4 + x * 4;
-                        const currentPassing = !matchPixel(bodyColor,
-                            data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
-
-                        if (currentPassing) {
-                            empty = false;
-                            if (bounds === undefined) {
-                                bounds = { left: x, top: y, right: x + 1, bottom: y + 1 };
-                            } else {
-                                bounds.top = Math.min(bounds.top, y + 1);
-                                bounds.right = Math.max(bounds.right, x + 1);
-                                bounds.bottom = Math.max(bounds.bottom, y + 1);
-                            }
-                        }
-                    }
-                }
+                const regions = [];
+                let lastX = 0;
 
                 const colors = {
                     body: 0,
                     text: 0,
                     misc: 0
                 };
-                for (let x = bounds.left; x < bounds.right; x++) {
-                    for (let y = bounds.top; y < bounds.bottom; y++) {
+                for (let x = 0; x < width; x++) {
+                    let weight = 0;
+                    for (let y = 0; y < height; y++) {
                         const pixelIndex = width * y * 4 + x * 4;
-                        if (matchPixel(bodyColor,
+                        if (' ' === matchPixel(bodyColor,
                                 data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
                             colors.body++;
-                        } else if (matchPixel(textColor,
+                        } else if (' ' === matchPixel(textColor,
                                 data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
                             colors.text++;
+                            weight += 1;
                         } else {
                             colors.misc++;
+                            weight += 0.5;
                         }
+                    }
+
+                    if (x === 0 && WEIGHT_LIMIT < weight) {
+                        regions.push(0);
+                    }
+                    if (weight < WEIGHT_LIMIT === !!(regions.length % 2)) {
+                        regions.push(x - lastX);
+                        lastX = x;
                     }
                 }
 
-                let passing = matchRect(expected, {
-                    x: bounds.left,
-                    y: bounds.top,
-                    width: bounds.right - bounds.left,
-                    height: bounds.bottom - bounds.top
-                });
+                let actualText = '';
+                regions.forEach((region, index) => actualText += index % 2 ? 'x' : SPACE_LIMIT < region ? ' ' : '');
+                const expectedText = expected.replace(/\S/g, 'x');
+
+                let passing = actualText.trim() === expectedText.trim();
 
                 passing = passing && colors.misc < colors.text && colors.text < colors.body;
 
-                const result = {
-                    pass: passing
-                };
-
-                return result;
+                return {
+                    pass: passing,
+                    message: `Mismatch\nExpected: ${expected}\n  Actual: ${actualText}`
+                }
             }
         }),
         toResembleShape: () => ({
             compare: (actual, expected, rotateCW) => {
                 const { data, width, height } = actual;
                 let passing = true;
-                const errors = [];
+                let matrix = `|${'-'.repeat(width)}|\n|`;
 
-                for (let x = 0; x < width; x++) {
-                    for (let y = 0; y < height; y++) {
+                for (let y = 0; y < height; y++) {
+                    for (let x = 0; x < width; x++) {
                         const pixelIndex = width * y * 4 + x * 4;
                         let mappedX;
                         let mappedY;
@@ -144,27 +151,19 @@ beforeEach(() => {
                                 break;
                         }
 
-                        const currentPassing = matchPixel(expected[mappedY][mappedX],
+                        const current = matchPixel(expected[mappedY][mappedX],
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
-                        passing = passing && currentPassing;
-
-                        if (!currentPassing) {
-                            errors.push({ pixelIndex, mappedX, mappedY, value: [
-                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]
-                            ]});
-                        }
+                        matrix += current;
+                        passing = passing && current === ' ';
                     }
+                    matrix += '|\n|';
                 }
+                matrix += `${'-'.repeat(width)}|`;
 
-                const result = {
-                    pass: passing
+                return {
+                    pass: passing,
+                    message: `Problems:\n${matrix}`
                 };
-
-                if (!passing) {
-                    result.message = `Problems ${errors.length}, ${JSON.stringify(errors)}`;
-                }
-
-                return result;
             }
         }),
         toResembleOblongShape: () => ({
@@ -183,7 +182,6 @@ beforeEach(() => {
                             mapped = rotateCW === 180 ? height - y - 1 : y;
                         }
 
-
                         const currentPassing = matchPixel(expected[mapped],
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
                         passing = passing && currentPassing;
@@ -196,11 +194,10 @@ beforeEach(() => {
                     }
                 }
 
-                const result = {
-                    pass: passing
+                return {
+                    pass: passing,
+                    message: `Problems:\n${errors}`
                 };
-
-                return result;
             }
         })
     });
