@@ -1,7 +1,4 @@
 beforeEach(() => {
-    const SPACE_LIMIT = 6;
-    const WEIGHT_LIMIT = 1;
-
     const match = (expected, actual) => {
         if (typeof expected === 'number') {
             return expected === actual;
@@ -38,10 +35,70 @@ beforeEach(() => {
         }
     };
 
-    const matchRect = (expected, actual) => {
-        return Object.keys(expected).reduce((passing, constraint) => {
-            return passing && match(expected[constraint], actual[constraint]);
-        }, true);
+    const segment = (data, width, height, bodyColor) => {
+        const segments = new Array(height).fill(0).map(() => new Array(width));
+        const regions = [];
+        let index = 0;
+        for (let x = 0; x < width; x++) {
+            for (let y = 0; y < height; y++) {
+                const pixelIndex = width * y * 4 + x * 4;
+                const current = matchPixel(bodyColor,
+                    data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
+                if (current === ' ') {
+                    segments[y][x] = 0;
+                } else {
+                    const neighbours = [];
+                    if (0 < y) {
+                        if (segments[y - 1][x]) { // check top
+                            neighbours.push(segments[y - 1][x]);
+                        }
+                    }
+                    if ((0 < x) && (0 < y)) {
+                        if (segments[y - 1][x - 1]) { // check top left
+                            neighbours.push(segments[y - 1][x - 1]);
+                        }
+                    }
+                    if (0 < x) {
+                        if (segments[y][x - 1]) { // check left
+                            neighbours.push(segments[y][x - 1]);
+                        }
+                    }
+                    if ((0 < x) && (y < data.height - 1)) {
+                        if (segments[y + 1][x - 1]) { // check bottom left
+                            neighbours.push(segments[y + 1][x - 1]);
+                        }
+                    }
+
+                    if (neighbours.length) {
+                        neighbours.sort();
+                        segments[y][x] = neighbours[0];
+                        if (1 < neighbours.length) {
+                            neighbours.forEach(neighbour => { // connect regions
+                                if (neighbour !== neighbours[0]) {
+                                    const foundReference = regions.find(region => region.includes(neighbours[0]));
+                                    const foundCurrent = regions.find(region => region.includes(neighbour));
+                                    if (foundCurrent === foundReference) {
+                                        // Nothing to do
+                                    } else if (foundReference && foundCurrent) {
+                                        regions.push(foundReference.concat(foundCurrent));
+                                        foundReference.length = 0;
+                                        foundCurrent.length = 0;
+                                    } else {
+                                        foundReference.push(neighbour);
+                                    }
+                                }
+                            });
+                        }
+                    } else {
+                        index++;
+                        segments[y][x] = index;
+                        regions.push([index]);
+                    }
+                }
+            }
+        }
+
+        return regions.filter(region => region.length).length;
     };
 
     jasmine.addMatchers({
@@ -73,51 +130,16 @@ beforeEach(() => {
         toResembleText: () => ({
             compare: (actual, expected, textColor, bodyColor) => {
                 const { data, width, height } = actual;
-                const regions = [];
-                let lastX = 0;
 
-                const colors = {
-                    body: 0,
-                    text: 0,
-                    misc: 0
-                };
-                for (let x = 0; x < width; x++) {
-                    let weight = 0;
-                    for (let y = 0; y < height; y++) {
-                        const pixelIndex = width * y * 4 + x * 4;
-                        if (' ' === matchPixel(bodyColor,
-                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
-                            colors.body++;
-                        } else if (' ' === matchPixel(textColor,
-                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
-                            colors.text++;
-                            weight += 1;
-                        } else {
-                            colors.misc++;
-                            weight += 0.5;
-                        }
-                    }
+                const segments = segment(data, width, height, bodyColor);
 
-                    if (x === 0 && WEIGHT_LIMIT < weight) {
-                        regions.push(0);
-                    }
-                    if (weight < WEIGHT_LIMIT === !!(regions.length % 2)) {
-                        regions.push(x - lastX);
-                        lastX = x;
-                    }
-                }
+                const words = expected.replace(/\s/g, '').length;
 
-                let actualText = '';
-                regions.forEach((region, index) => actualText += index % 2 ? 'x' : SPACE_LIMIT < region ? ' ' : '');
-                const expectedText = expected.replace(/\S/g, 'x');
-
-                let passing = actualText.trim() === expectedText.trim();
-
-                passing = passing && colors.misc < colors.text && colors.text < colors.body;
+                const passing = segments === words;
 
                 return {
                     pass: passing,
-                    message: `Mismatch\nExpected: ${expected}\n  Actual: ${actualText}`
+                    message: `Mismatch\nExpected: ${expected}\n  Actual: ${words} characters`
                 }
             }
         }),
