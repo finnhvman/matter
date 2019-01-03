@@ -1,0 +1,123 @@
+.matter-textfield-filled {
+    position: relative;
+    display: inline-block;
+    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+/* Input, Textarea */
+.matter-textfield-filled > input,
+.matter-textfield-filled > textarea {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-top: solid 24px transparent;
+    border-bottom: solid 1px rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 4px 4px 0 0;
+    padding: 0 12px 7px;
+    width: 100%;
+    height: inherit;
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.87);
+    -webkit-text-fill-color: currentColor; /* Safari */
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.04);
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    transition: border-bottom 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.matter-textfield-filled > input + span,
+.matter-textfield-filled > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 7px 12px 0;
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+    font-size: 75%;
+    line-height: 18px;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Underline */
+.matter-textfield-filled > input + span::after,
+.matter-textfield-filled > textarea + span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+/* Hover */
+.matter-textfield-filled > input:hover,
+.matter-textfield-filled > textarea:hover {
+    border-bottom-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.87);
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.08);
+}
+
+/* Placeholder-shown */
+.matter-textfield-filled > input:not(:focus):placeholder-shown + span,
+.matter-textfield-filled > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 48px;
+}
+
+/* Focus */
+.matter-textfield-filled > input:focus,
+.matter-textfield-filled > textarea:focus {
+    outline: none;
+}
+
+.matter-textfield-filled > input:focus + span,
+.matter-textfield-filled > textarea:focus + span {
+    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+}
+
+.matter-textfield-filled > input:focus + span::after,
+.matter-textfield-filled > textarea:focus + span::after {
+    transform: scale(1);
+}
+
+/* Disabled */
+.matter-textfield-filled > input:disabled,
+.matter-textfield-filled > textarea:disabled {
+    border-bottom-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.24);
+}
+
+.matter-textfield-filled > input:disabled + span,
+.matter-textfield-filled > textarea:disabled + span {
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .matter-textfield-filled > input,
+        .matter-textfield-filled > input + span,
+        .matter-textfield-filled > input + span::after,
+        .matter-textfield-filled > textarea,
+        .matter-textfield-filled > textarea + span,
+        .matter-textfield-filled > textarea + span::after {
+            transition-duration: 0.1s;
+        }
+    }
+}

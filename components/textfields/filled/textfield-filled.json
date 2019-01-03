@@ -1,0 +1,10 @@
+{
+  "degradation": [
+    "Transitions are faster in Safari"
+  ],
+  "issues": [
+    "The placeholder attribute has to be present on the input with the value of \" \" (space)",
+    "No floating label on Edge",
+    "The label cannot be selected"
+  ]
+}

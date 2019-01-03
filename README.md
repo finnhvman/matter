@@ -21,6 +21,21 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 
 <!-- Text Button -->
 <button class="matter-button-text">Button</button>
+
+
+<!-- Filled Textfield (keep the placeholder attribute as it is) -->
+<label class="matter-textfield-filled">
+    <input placeholder=" "/>
+    <span>Textfield</span>
+</label>
+
+<!-- Filled Textfield (textarea) (keep the placeholder attribute as it is) -->
+<label class="matter-textfield-filled">
+    <textarea placeholder=" "></textarea>
+    <span>Textfield</span>
+</label>
+
+<!-- etc. -->
 ```
 
 More components are coming, see below!
@@ -40,9 +55,9 @@ More components are coming, see below!
   - [ ] Switch
 - [ ] Slider
 - [ ] Text Fields
-  - [ ] Filled
+  - [x] Filled
   - [ ] Outlined
-  - [ ] Standard
+  - [x] Standard
 - [ ] Tooltip
 
 ## Contact
