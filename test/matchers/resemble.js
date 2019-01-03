@@ -1,4 +1,6 @@
 beforeEach(() => {
+    const TEXT_TOLERANCE = 25;
+
     const match = (expected, actual) => {
         if (typeof expected === 'number') {
             return expected === actual;
@@ -35,6 +37,21 @@ beforeEach(() => {
         }
     };
 
+    const tolerate = (value, tolerance) => {
+        if (typeof value === 'number') {
+            return [ value - tolerance, value + tolerance ];
+        } else if (value instanceof Array) {
+            return [ value[0] - tolerance, value[1] + tolerance ];
+        }
+    };
+
+    const tolerateColor = (color, tolerance) => {
+        return Object.keys(color).reduce((toleratedColor, channel) => {
+            toleratedColor[channel] = tolerate(color[channel], tolerance);
+            return toleratedColor;
+        }, {});
+    };
+
     const segment = (data, width, height, bodyColor) => {
         const segments = new Array(height).fill(0).map(() => new Array(width));
         const regions = [];
@@ -53,19 +70,9 @@ beforeEach(() => {
                             neighbours.push(segments[y - 1][x]);
                         }
                     }
-                    if ((0 < x) && (0 < y)) {
-                        if (segments[y - 1][x - 1]) { // check top left
-                            neighbours.push(segments[y - 1][x - 1]);
-                        }
-                    }
                     if (0 < x) {
                         if (segments[y][x - 1]) { // check left
                             neighbours.push(segments[y][x - 1]);
-                        }
-                    }
-                    if ((0 < x) && (y < data.height - 1)) {
-                        if (segments[y + 1][x - 1]) { // check bottom left
-                            neighbours.push(segments[y + 1][x - 1]);
                         }
                     }
 
@@ -135,11 +142,35 @@ beforeEach(() => {
 
                 const words = expected.replace(/\s/g, '').length;
 
-                const passing = segments === words;
+                let passing = segments === words;
+
+                const toleratedColor = tolerateColor(textColor, TEXT_TOLERANCE);
+
+                const colors = {
+                    body: 0,
+                    text: 0,
+                    misc: 0
+                };
+                for (let x = 0; x < width; x++) {
+                    for (let y = 0; y < height; y++) {
+                        const pixelIndex = width * y * 4 + x * 4;
+                        if (' ' === matchPixel(bodyColor,
+                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
+                            colors.body++;
+                        } else if (' ' === matchPixel(toleratedColor,
+                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3])) {
+                            colors.text++;
+                        } else {
+                            colors.misc++
+                        }
+                    }
+                }
+
+                passing = passing && colors.misc <= colors.text && colors.text <= colors.body;
 
                 return {
                     pass: passing,
-                    message: `Mismatch\nExpected: ${expected}\n  Actual: ${words} characters`
+                    message: `Expected: ${words} characters (${expected}), Actual: ${segments} characters. Colors: ${colors.misc}, ${colors.text}, ${colors.body}`
                 }
             }
         }),

@@ -9,7 +9,13 @@ export const setUp = (spec, states = {}) => {
         if (attributes instanceof Array) {
             attributes.forEach(attribute => element.setAttribute(attribute, ''));
         } else if (typeof attributes === 'object') {
-            Object.entries(attributes).forEach(([ attribute, value ]) => element.setAttribute(attribute, value));
+            Object.entries(attributes).forEach(([ attribute, value ]) => {
+                if (element.tagName === 'TEXTAREA' && attribute === 'value') {
+                    element.textContent = value;
+                } else {
+                    element.setAttribute(attribute, value);
+                }
+            });
         }
     });
 
@@ -39,7 +45,7 @@ const findStyleSheet = (styleSheets, href) => {
 };
 
 const replacePseudos = (cssText) => {
-    const regular = [ 'active', 'focus', 'focus-within', 'hover' ];
+    const regular = [ 'active', 'focus', 'focus-within', 'hover', 'placeholder-shown' ];
     return regular.reduce((css, pseudo) => css.replace(new RegExp(`:${pseudo}`, 'g'), `[${pseudo}]`), cssText);
 };
 
