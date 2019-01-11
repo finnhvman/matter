@@ -24,7 +24,8 @@ describe('Standard Textfield', () => {
         {
             label: 'hover',
             states: {
-                '#xmas > input': [ 'hover', 'placeholder-shown' ]
+                '#xmas': [ 'hover' ],
+                '#xmas > input': [ 'placeholder-shown' ]
             },
             bodyColor: { a: 0 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
@@ -63,7 +64,8 @@ describe('Standard Textfield', () => {
         {
             label: 'hover & focus',
             states: {
-                '#xmas > input': [ 'hover', 'focus' ]
+                '#xmas': [ 'hover' ],
+                '#xmas > input': [ 'focus' ]
             },
             bodyColor: { a: 0 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -76,8 +78,8 @@ describe('Standard Textfield', () => {
         {
             label: 'hover & nonempty',
             states: {
+                '#xmas': [ 'hover' ],
                 '#xmas > input': {
-                    hover: '',
                     value: 'Ornaments & a Cat'
                 }
             },
@@ -107,8 +109,8 @@ describe('Standard Textfield', () => {
         {
             label: 'hover, focus & nonempty',
             states: {
+                '#xmas': [ 'hover' ],
                 '#xmas > input': {
-                    hover: '',
                     focus: '',
                     value: 'Ornaments & a Cat'
                 }
@@ -152,7 +154,7 @@ describe('Standard Textfield', () => {
             label: 'customized & focus',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px;'
                 },
                 '#xmas > input': [ 'focus' ]
             },
@@ -168,7 +170,7 @@ describe('Standard Textfield', () => {
             label: 'customized & nonempty',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px;'
                 },
                 '#xmas > input': {
                     value: 'Ornaments & a Cat'
@@ -323,6 +325,9 @@ describe('Standard Textfield', () => {
                 const states = Object.entries(suite.states).reduce((object, [ key, value ]) => {
                     const newKey = key.replace(/#xmas/g, '#ta-xmas').replace(/input/g, 'textarea');
                     object[newKey] = value;
+                    if (key === '#xmas') {
+                        object[newKey].style = object[newKey].style + 'height: 90px;';
+                    }
                     return object;
                 }, {});
 

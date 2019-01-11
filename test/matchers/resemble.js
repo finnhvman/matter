@@ -1,5 +1,6 @@
 beforeEach(() => {
     const TEXT_TOLERANCE = 25;
+    const ERROR_LIMIT = 20;
 
     const match = (expected, actual) => {
         if (typeof expected === 'number') {
@@ -223,7 +224,8 @@ beforeEach(() => {
             compare: (actual, expected, rotateCW) => {
                 const { data, width, height } = actual;
                 let passing = true;
-                const errors = [];
+                let errors = '';
+                let errorCount = 0;
 
                 for (let x = 0; x < width; x++) {
                     for (let y = 0; y < height; y++) {
@@ -235,21 +237,22 @@ beforeEach(() => {
                             mapped = rotateCW === 180 ? height - y - 1 : y;
                         }
 
-                        const currentPassing = matchPixel(expected[mapped],
+                        const current = matchPixel(expected[mapped],
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
-                        passing = passing && currentPassing;
+                        passing = passing && (current === ' ');
 
-                        if (!currentPassing) {
-                            errors.push({ pixelIndex, mapped, value: [
-                                data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]
-                            ]});
+                        if (current !== ' ') {
+                            if (errorCount < ERROR_LIMIT) {
+                                errors += `(${x}, ${y}): ${data[pixelIndex]}, ${data[pixelIndex + 1]}, ${data[pixelIndex + 2]}, ${data[pixelIndex + 3]})}\n`;
+                            }
+                            errorCount++;
                         }
                     }
                 }
 
                 return {
                     pass: passing,
-                    message: `Problems:\n${errors}`
+                    message: `Problems (first ${ERROR_LIMIT}):\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
                 };
             }
         })

@@ -24,7 +24,8 @@ describe('Filled Textfield', () => {
         {
             label: 'hover',
             states: {
-                '#xmas > input': [ 'hover', 'placeholder-shown' ]
+                '#xmas': [ 'hover' ],
+                '#xmas > input': [ 'placeholder-shown' ]
             },
             bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
@@ -63,7 +64,8 @@ describe('Filled Textfield', () => {
         {
             label: 'hover & focus',
             states: {
-                '#xmas > input': [ 'hover', 'focus' ]
+                '#xmas': [ 'hover' ],
+                '#xmas > input': [ 'focus' ]
             },
             bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -76,8 +78,8 @@ describe('Filled Textfield', () => {
         {
             label: 'hover & nonempty',
             states: {
+                '#xmas': [ 'hover' ],
                 '#xmas > input': {
-                    hover: '',
                     value: 'Ornaments & a Cat'
                 }
             },
@@ -107,8 +109,8 @@ describe('Filled Textfield', () => {
         {
             label: 'hover, focus & nonempty',
             states: {
+                '#xmas': [ 'hover' ],
                 '#xmas > input': {
-                    hover: '',
                     focus: '',
                     value: 'Ornaments & a Cat'
                 }
@@ -152,7 +154,7 @@ describe('Filled Textfield', () => {
             label: 'customized & focus',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px;'
                 },
                 '#xmas > input': [ 'focus' ]
             },
@@ -168,7 +170,7 @@ describe('Filled Textfield', () => {
             label: 'customized & nonempty',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 240px;'
                 },
                 '#xmas > input': {
                     value: 'Ornaments & a Cat'
@@ -296,21 +298,23 @@ describe('Filled Textfield', () => {
             });
 
             it('should have underline', () => {
+                // body
+                const bd = suite.bodyColor;
                 // underline
                 const ul = suite.underlineColor;
 
-                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                const body = [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const underline = suite.underlineWidth === 2
-                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
-                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                    ? [ ul, ul, ul, ul, ul, ul, bd, bd, bd, bd, bd, bd ]
+                    : [ ul, ul, ul, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const top = context.getImageData3x(4, 0, width - 8, 4);
                 const right = context.getImageData3x(width - 4, 4, 4, height - 8);
                 const bottom = context.getImageData3x(4, height - 4, width - 8, 4);
 
-                expect(top).toResembleOblongShape(transparent, 0);
-                expect(right).toResembleOblongShape(transparent, 90);
+                expect(top).toResembleOblongShape(body, 0);
+                expect(right).toResembleOblongShape(body, 90);
                 expect(bottom).toResembleOblongShape(underline, 180);
             });
 
@@ -342,6 +346,9 @@ describe('Filled Textfield', () => {
                 const states = Object.entries(suite.states).reduce((object, [ key, value ]) => {
                     const newKey = key.replace(/#xmas/g, '#ta-xmas').replace(/input/g, 'textarea');
                     object[newKey] = value;
+                    if (key === '#xmas') {
+                        object[newKey].style = object[newKey].style + 'height: 90px;';
+                    }
                     return object;
                 }, {});
 
@@ -449,21 +456,23 @@ describe('Filled Textfield', () => {
             });
 
             it('should have underline', () => {
+                // body
+                const bd = suite.bodyColor;
                 // underline
                 const ul = suite.underlineColor;
 
-                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                const body = [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const underline = suite.underlineWidth === 2
-                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
-                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                    ? [ ul, ul, ul, ul, ul, ul, bd, bd, bd, bd, bd, bd ]
+                    : [ ul, ul, ul, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const top = context.getImageData3x(4, 0, width - 8, 4);
                 const right = context.getImageData3x(width - 4, 4, 4, height - 8);
-                const bottom = context.getImageData3x(4, height - 4, width - 16, 4);
+                const bottom = context.getImageData3x(4, height - 4, width - 8, 4);
 
-                expect(top).toResembleOblongShape(transparent, 0);
-                expect(right).toResembleOblongShape(transparent, 90);
+                expect(top).toResembleOblongShape(body, 0);
+                expect(right).toResembleOblongShape(body, 90);
                 expect(bottom).toResembleOblongShape(underline, 180);
             });
 

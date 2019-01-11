@@ -4,7 +4,6 @@
     font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;
     line-height: 1.5;
-    overflow: hidden;
 }
 
 /* Input, Textarea */
@@ -65,8 +64,8 @@
 }
 
 /* Hover */
-.matter-textfield-standard > input:hover,
-.matter-textfield-standard > textarea:hover {
+.matter-textfield-standard:hover > input,
+.matter-textfield-standard:hover > textarea {
     border-bottom-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.87);
 }
 
