@@ -7,7 +7,7 @@ const SPACING = 4;
 // transparent
 const tp = { a: 0 };
 
-fdescribe('Outlined Textfield', () => {
+describe('Outlined Textfield', () => {
     
     [
         {

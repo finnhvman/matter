@@ -6,7 +6,7 @@
 
 <p align="center">Material Components in Pure CSS</p>
 
-<p align="center">This project is work in progress, I am open-sourcing <a href="https://codepen.io/finnhvman/full/zMKagM" target="_top">Pure CSS Material Components</a>.</p>
+<p align="center">This project is work in progress, I am open-sourcing <a href="https://codepen.io/finnhvman/full/zMKagM">Pure CSS Material Components</a>.</p>
 
 ## Get Started
 
