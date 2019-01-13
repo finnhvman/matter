@@ -1,7 +1,12 @@
-<img src="../master/docs/m.svg" alt="Matter M logo" width="90" height="90">
+<p align="center">
+  <img src="../master/docs/m.svg" alt="Matter M logo" width="90" height="90">
+</p>
 
-# Matter
-Material Components in Pure CSS
+<h1 align="center">Matter</h1>
+
+<div align="center">
+  Material Components in Pure CSS
+</div>
 
 This project is a work in progress, I am open-sourcing [Pure CSS Material Components](https://codepen.io/finnhvman/full/zMKagM).
 
@@ -54,9 +59,9 @@ More components are coming, see below!
   - [ ] Radio Button
   - [ ] Switch
 - [ ] Slider
-- [ ] Text Fields
+- [x] Text Fields
   - [x] Filled
-  - [ ] Outlined
+  - [x] Outlined
   - [x] Standard
 - [ ] Tooltip
 
