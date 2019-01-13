@@ -1,4 +1,6 @@
-const IS_SAFARI = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+import { isBrowser } from './browser.js';
+
+const IS_SAFARI = isBrowser('Safari');
 
 const capture = (element, style, spacing = 0, pixelDensity) => {
     const { width, height } = element.getBoundingClientRect();

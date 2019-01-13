@@ -216,7 +216,7 @@ beforeEach(() => {
 
                 return {
                     pass: passing,
-                    message: `Problems:\n${matrix}`
+                    message: `Problems at ${rotateCW}deg:\n${matrix}`
                 };
             }
         }),
@@ -252,7 +252,7 @@ beforeEach(() => {
 
                 return {
                     pass: passing,
-                    message: `Problems (first ${ERROR_LIMIT}):\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
+                    message: `Problems at ${rotateCW}deg (first ${ERROR_LIMIT}):\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
                 };
             }
         })
