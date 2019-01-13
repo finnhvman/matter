@@ -4,11 +4,9 @@
 
 <h1 align="center">Matter</h1>
 
-<div align="center">
-  Material Components in Pure CSS
-</div>
+<p align="center">Material Components in Pure CSS</p>
 
-This project is a work in progress, I am open-sourcing [Pure CSS Material Components](https://codepen.io/finnhvman/full/zMKagM).
+<p align="center">This project is work in progress, I am open-sourcing [Pure CSS Material Components](https://codepen.io/finnhvman/full/zMKagM).</p>
 
 ## Get Started
 
