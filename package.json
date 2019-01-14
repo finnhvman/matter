@@ -2,13 +2,13 @@
   "name": "matter",
   "version": "0.0.1",
   "description": "Material Components in Pure CSS",
+  "author": "Ben Szabo (finnhvman)",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js",
-    "test:dev": "karma start karma.dev.conf.js"
+    "dist": "cat src/components/*/*.css src/components/*/*/*.css > dist/matter.css",
+    "test": "karma start karma.conf.js"
   },
-  "author": "Bence Szabó (finnhvman)",
-  "license": "MIT",
   "devDependencies": {
     "jasmine": "3.3.1",
     "karma": "3.1.4",

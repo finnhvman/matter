@@ -1,93 +1,103 @@
-import { setUp, tearDown } from '../../../test/helpers/fixture.js';
-import { capture3x } from '../../../test/helpers/capture.js';
+import { setUp, tearDown } from '../../../../test/helpers/fixture.js';
+import { capture3x } from '../../../../test/helpers/capture.js';
 
 const SPACING = 4;
 
 // transparent
 const tp = { a: 0 };
 
-describe('Text Button', () => {
+describe('Outlined Button', () => {
 
     [
         {
             label: 'normal',
             states: {},
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { a: 0 }
+            bodyColor: { a: 0 },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'hover',
             states: {
-                '#xmas.matter-button-text': [ 'hover' ]
+                '#xmas.matter-button-outlined': [ 'hover' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [25, 26], g: 153, b: 255, a: 10 }
+            bodyColor: { r: [25, 26], g: 153, b: 255, a: 10 },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'focus',
             states: {
-                '#xmas.matter-button-text': [ 'focus' ]
+                '#xmas.matter-button-outlined': [ 'focus' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] }
+            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'active',
             states: {
-                '#xmas.matter-button-text': [ 'active' ]
+                '#xmas.matter-button-outlined': [ 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
             bodyColor: { a: 0 },
+            outlineColor: { r: 0, g: 0, b: 0, a: 61 }
         },
         {
             label: 'hover & focus',
             states: {
-                '#xmas.matter-button-text': [ 'hover', 'focus' ]
+                '#xmas.matter-button-outlined': [ 'hover', 'focus' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [31, 32], g: [149, 153], b: [242, 243], a: [40, 41] }
+            bodyColor: { r: [31, 32], g: [149, 153], b: [242, 243], a: [40, 41] },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'hover & active',
             states: {
-                '#xmas.matter-button-text': [ 'hover', 'active' ]
+                '#xmas.matter-button-outlined': [ 'hover', 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [25, 26], g: 153, b: 255, a: 10 }
+            bodyColor: { r: [25, 26], g: 153, b: 255, a: 10 },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'focus & active',
             states: {
-                '#xmas.matter-button-text': [ 'focus', 'active' ]
+                '#xmas.matter-button-outlined': [ 'focus', 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] }
+            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'hover, focus & active',
             states: {
-                '#xmas.matter-button-text': [ 'hover', 'focus', 'active' ]
+                '#xmas.matter-button-outlined': [ 'hover', 'focus', 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [31, 32], g: [149, 153], b: [242, 243], a: [40, 41] }
+            bodyColor: { r: [31, 32], g: [149, 153], b: [242, 243], a: [40, 41] },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'disabled',
             states: {
-                '#xmas.matter-button-text': [ 'disabled' ]
+                '#xmas.matter-button-outlined': [ 'disabled' ]
             },
             textColor: { r: 0, g: 0, b: 0, a: 97 },
-            bodyColor: { a: 0 }
+            bodyColor: { a: 0 },
+            outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
             label: 'customized',
             states: {
-                '#xmas.matter-button-text': {
+                '#xmas.matter-button-outlined': {
                     style: '--matter-primary-rgb: 255, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 120px'
                 }
             },
             textColor: { r: 255, g: 0, b: 0, a: 255 },
-            bodyColor: { a: 0 }
+            bodyColor: { a: 0 },
+            outlineColor: { r: 255, g: 255, b: 255, a: [60, 61] }
         }
     ].forEach((suite) => {
 
@@ -100,7 +110,7 @@ describe('Text Button', () => {
             let context;
 
             beforeAll(async () => {
-                style = setUp('components/buttons/text/button-text', suite.states);
+                style = setUp('src/components/buttons/outlined/button-outlined', suite.states);
 
                 button = document.querySelector('#xmas');
                 const rect = button.getBoundingClientRect();
@@ -126,28 +136,28 @@ describe('Text Button', () => {
                 expect(caption).toResembleText('XMAS TREE', suite.textColor, suite.bodyColor);
             });
 
-            it(`should have 4px round corners`, () => {
+            it(`should have 4px round outlined corners`, () => {
                 // intermediate
-                const im = {
-                    a: [ 0, typeof suite.bodyColor.a === 'number' ? suite.bodyColor.a : suite.bodyColor.a[1] ]
-                };
+                const im = { a: [ 0, 61 ] };
+                // outline
+                const ol = suite.outlineColor;
 
                 // body
                 const bd = suite.bodyColor;
 
                 const corner = [
                     [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
-                    [ tp, tp, tp, tp, tp, im, im, im, bd, bd, bd, bd],
-                    [ tp, tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd],
-                    [ tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd],
-                    [ tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ tp, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
-                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd]
+                    [ tp, tp, tp, tp, tp, im, im, im, ol, ol, ol, ol],
+                    [ tp, tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol],
+                    [ tp, tp, tp, im, im, ol, ol, ol, im, im, im, im],
+                    [ tp, tp, im, im, ol, ol, im, im, im, bd, bd, bd],
+                    [ tp, im, im, ol, ol, im, im, bd, bd, bd, bd, bd],
+                    [ tp, im, ol, ol, im, im, bd, bd, bd, bd, bd, bd],
+                    [ im, im, ol, ol, im, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, ol, ol, im, im, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, ol, ol, im, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, ol, ol, im, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, ol, ol, im, bd, bd, bd, bd, bd, bd, bd, bd]
                 ];
 
                 const topLeft = context.getImageData3x(0, 0, 4, 4);
@@ -161,11 +171,14 @@ describe('Text Button', () => {
                 expect(bottomLeft).toResembleShape(corner, 270);
             });
 
-            it('should have no outline', () => {
+            it('should have 1px outline', () => {
+                // outline
+                const ol = suite.outlineColor;
+
                 // body
                 const bd = suite.bodyColor;
 
-                const edge = [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
+                const edge = [ ol, ol, ol, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const top = context.getImageData3x(4, 0, width - 8, 4);
                 const right = context.getImageData3x(width - 4, 4, 4, height - 8);
@@ -199,7 +212,7 @@ describe('Text Button', () => {
     describe('in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/buttons/text/button-text');
+            setUp('src/components/buttons/outlined/button-outlined');
         });
 
         afterAll(() => {

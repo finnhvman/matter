@@ -1,13 +1,12 @@
-import { setUp, tearDown } from '../../../test/helpers/fixture.js';
-import { capture3x } from '../../../test/helpers/capture.js';
-import { isBrowserNot } from '../../../test/helpers/browser.js';
+import { setUp, tearDown } from '../../../../test/helpers/fixture.js';
+import { capture3x } from '../../../../test/helpers/capture.js';
 
 const SPACING = 4;
 
 // transparent
 const tp = { a: 0 };
 
-describe('Outlined Textfield', () => {
+describe('Standard Textfield', () => {
     
     [
         {
@@ -20,7 +19,7 @@ describe('Outlined Textfield', () => {
             labelFloating: false,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 153 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 153 }
         },
         {
             label: 'hover',
@@ -33,7 +32,7 @@ describe('Outlined Textfield', () => {
             labelFloating: false,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 222 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 222 }
         },
         {
             label: 'focus',
@@ -45,8 +44,8 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineWidth: 2,
-            outlineColor: { r: 33, g: 150, b: 243, a: 255 },
+            underlineWidth: 2,
+            underlineColor: { r: 33, g: 150, b: 243, a: 255 },
         },
         {
             label: 'nonempty',
@@ -60,7 +59,7 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 153 },
+            underlineColor: { r: 0, g: 0, b: 0, a: 153 },
         },
         {
             label: 'hover & focus',
@@ -73,8 +72,8 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineWidth: 2,
-            outlineColor: { r: 33, g: 150, b: 243, a: 255 },
+            underlineWidth: 2,
+            underlineColor: { r: 33, g: 150, b: 243, a: 255 },
         },
         {
             label: 'hover & nonempty',
@@ -89,7 +88,7 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 222 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 222 }
         },
         {
             label: 'focus & nonempty',
@@ -104,8 +103,8 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineWidth: 2,
-            outlineColor: { r: 33, g: 150, b: 243, a: 255 },
+            underlineWidth: 2,
+            underlineColor: { r: 33, g: 150, b: 243, a: 255 },
         },
         {
             label: 'hover, focus & nonempty',
@@ -121,8 +120,8 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineWidth: 2,
-            outlineColor: { r: 33, g: 150, b: 243, a: 255 },
+            underlineWidth: 2,
+            underlineColor: { r: 33, g: 150, b: 243, a: 255 },
         },
         {
             label: 'disabled',
@@ -134,7 +133,7 @@ describe('Outlined Textfield', () => {
             labelFloating: false,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 97 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 97 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 97 }
         },
         {
             label: 'disabled & nonempty',
@@ -149,7 +148,7 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 97 },
-            outlineColor: { r: 0, g: 0, b: 0, a: 97 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 97 }
         },
         {
             label: 'customized & focus',
@@ -164,8 +163,8 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            outlineWidth: 2,
-            outlineColor: { r: 255, g: 0, b: 0, a: 255 }
+            underlineWidth: 2,
+            underlineColor: { r: 255, g: 0, b: 0, a: 255 },
         },
         {
             label: 'customized & nonempty',
@@ -182,7 +181,7 @@ describe('Outlined Textfield', () => {
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 255, g: 255, b: 255, a: 222 },
-            outlineColor: { r: [254, 255], g: [254, 255], b: [254, 255], a: 153 },
+            underlineColor: { r: [254, 255], g: [254, 255], b: [254, 255], a: 153 },
         }
     ].forEach((suite) => {
 
@@ -195,7 +194,7 @@ describe('Outlined Textfield', () => {
             let context;
 
             beforeAll(async () => {
-                style = setUp('components/textfields/outlined/textfield-outlined', suite.states);
+                style = setUp('src/components/textfields/standard/textfield-standard', suite.states);
 
                 textfield = document.querySelector('#xmas');
                 const rect = textfield.getBoundingClientRect();
@@ -216,8 +215,8 @@ describe('Outlined Textfield', () => {
 
             it('should have label', () => {
                 const label = suite.labelFloating
-                    ? context.getImageData3x(12, 0, 58, 24)
-                    : context.getImageData3x(4, 24, width - 8, height - 28);
+                    ? context.getImageData3x(0, 0, width, 24)
+                    : context.getImageData3x(0, 24, width, height - 28);
 
                 expect(textfield.querySelector('span').innerText).toBe('Xmas Tree');
                 expect(label).toResembleText('Xmas Tree', suite.labelColor, suite.bodyColor);
@@ -225,7 +224,7 @@ describe('Outlined Textfield', () => {
 
             it('should have text', () => {
                 const text = suite.labelFloating
-                    ? context.getImageData3x(4, 24, width - 8, height - 28)
+                    ? context.getImageData3x(0, 24, width, height - 28)
                     : context.getImageData3x(0, 0, 1, 1);
 
                 const expected = suite.text;
@@ -234,83 +233,68 @@ describe('Outlined Textfield', () => {
                 expect(text).toResembleText(expected, suite.textColor, suite.bodyColor);
             });
 
-            it('should have 4px round outlined corners', () => {
-                // Border and box-shadow at the corners aren't perfect, so (mainly the alpha) tolerance is pretty large
-                const { r, g, b, a } = suite.outlineColor;
-                const CT = 5;
-                const AT = 50;
-                // outline
-                const ol = {
-                    r: Array.isArray(r) ? [ r[0] - CT, r[1] + CT ] : [ r - CT, r + CT ],
-                    g: Array.isArray(g) ? [ g[0] - CT, g[1] + CT ] : [ g - CT, g + CT ],
-                    b: Array.isArray(b) ? [ b[0] - CT, b[1] + CT ] : [ b - CT, b + CT ],
-                    a: Array.isArray(a) ? [ a[0] - AT, a[1] + AT ] : [ a - AT, a + AT ]
-                };
+            it(`should have no top corners and edgy bottom corners`, () => {
+                // underline
+                const ul = suite.underlineColor;
 
-                // intermediate
-                const im = { a: [ 0, a + AT ] };
+                const topCorner = new Array(12).fill(new Array(12).fill(tp));
 
-                const corner = suite.outlineWidth === 2 ? [
-                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
-                    [ tp, tp, tp, tp, tp, im, im, im, ol, ol, ol, ol],
-                    [ tp, tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, im, im, im, ol, ol, ol, ol, ol, ol, ol],
-                    [ tp, im, im, ol, ol, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, im, ol, ol, ol, ol, ol, ol, im, im, im, im],
-                    [ im, im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp]
+                const bottomCorner = suite.underlineWidth === 2 ? [
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ] : [
-                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
-                    [ tp, tp, tp, tp, tp, im, im, im, ol, ol, ol, ol],
-                    [ tp, tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, tp, im, im, ol, ol, ol, im, im, im, im],
-                    [ tp, tp, im, im, im, ol, im, im, im, tp, tp, tp],
-                    [ tp, im, im, ol, ol, im, im, tp, tp, tp, tp, tp],
-                    [ tp, im, ol, ol, im, im, tp, tp, tp, tp, tp, tp],
-                    [ im, im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, im, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp]
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ];
 
-                const topLeft = context.getImageData3x(0, 6, 4, 4);
-                const topRight = context.getImageData3x(width - 4, 6, 4, 4);
+                const topLeft = context.getImageData3x(0, 0, 4, 4);
+                const topRight = context.getImageData3x(width - 4, 0, 4, 4);
                 const bottomRight = context.getImageData3x(width - 4, height - 4, 4, 4);
                 const bottomLeft = context.getImageData3x(0, height - 4, 4, 4);
 
-                isBrowserNot('Safari') && expect(topLeft).toResembleShape(corner, 0);
-                isBrowserNot('Safari') && expect(topRight).toResembleShape(corner, 90);
-                isBrowserNot('Safari') && expect(bottomRight).toResembleShape(corner, 180);
-                isBrowserNot('Safari') && expect(bottomLeft).toResembleShape(corner, 270);
+                expect(topLeft).toResembleShape(topCorner, 0);
+                expect(topRight).toResembleShape(topCorner, 0);
+                expect(bottomRight).toResembleShape(bottomCorner, 0);
+                expect(bottomLeft).toResembleShape(bottomCorner, 0);
             });
 
-            it('should have outline', () => {
-                // outline
-                const ol = suite.outlineColor;
+            it('should have underline', () => {
+                // underline
+                const ul = suite.underlineColor;
 
-                // body
-                const bd = suite.bodyColor;
+                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
 
-                const edge = suite.outlineWidth === 2
-                    ? [ ol, ol, ol, ol, ol, ol, bd, bd, bd, bd, bd, bd ]
-                    : [ ol, ol, ol, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
+                const underline = suite.underlineWidth === 2
+                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
+                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
 
-                const top = suite.labelFloating
-                    ? context.getImageData3x(80, 6, width - 84, 4)
-                    : context.getImageData3x(5, 6, width - 10, 4);
-                const right = context.getImageData3x(width - 4, 11, 4, height - 16);
-                const bottom = context.getImageData3x(5, height - 4, width - 10, 4);
-                const left = context.getImageData3x(0, 11, 4, height - 16);
+                const top = context.getImageData3x(4, 0, width - 8, 4);
+                const right = context.getImageData3x(width - 4, 4, 4, height - 8);
+                const bottom = context.getImageData3x(4, height - 4, width - 8, 4);
 
-                isBrowserNot('Safari') && expect(top).toResembleOblongShape(edge, 0);
-                expect(right).toResembleOblongShape(edge, 90);
-                isBrowserNot('Safari') && expect(bottom).toResembleOblongShape(edge, 180);
-                expect(left).toResembleOblongShape(edge, 270);
+                expect(top).toResembleOblongShape(transparent, 0);
+                expect(right).toResembleOblongShape(transparent, 90);
+                expect(bottom).toResembleOblongShape(underline, 180);
             });
 
             it('should have no shadow', () => {
@@ -347,7 +331,7 @@ describe('Outlined Textfield', () => {
                     return object;
                 }, {});
 
-                style = setUp('components/textfields/outlined/textfield-outlined', states);
+                style = setUp('src/components/textfields/standard/textfield-standard', states);
 
                 textfield = document.querySelector('#ta-xmas');
                 const rect = textfield.getBoundingClientRect();
@@ -368,8 +352,8 @@ describe('Outlined Textfield', () => {
 
             it('should have label', () => {
                 const label = suite.labelFloating
-                    ? context.getImageData3x(12, 0, 58, 24)
-                    : context.getImageData3x(4, 24, width - 8, height - 28);
+                    ? context.getImageData3x(0, 0, width, 24)
+                    : context.getImageData3x(0, 24, width, 32);
 
                 expect(textfield.querySelector('span').innerText).toBe('Xmas Tree');
                 expect(label).toResembleText('Xmas Tree', suite.labelColor, suite.bodyColor);
@@ -377,7 +361,7 @@ describe('Outlined Textfield', () => {
 
             it('should have text', () => {
                 const text = suite.labelFloating
-                    ? context.getImageData3x(4, 24, width - 8, height - 28)
+                    ? context.getImageData3x(0, 24, width, height - 28)
                     : context.getImageData3x(0, 0, 1, 1);
 
                 const expected = suite.text;
@@ -386,83 +370,68 @@ describe('Outlined Textfield', () => {
                 expect(text).toResembleText(expected, suite.textColor, suite.bodyColor);
             });
 
-            it('should have 4px round outlined corners', () => {
-                // Border and box-shadow at the corners aren't perfect, so (mainly the alpha) tolerance is pretty large
-                const { r, g, b, a } = suite.outlineColor;
-                const CT = 5;
-                const AT = 50;
-                // outline
-                const ol = {
-                    r: Array.isArray(r) ? [ r[0] - CT, r[1] + CT ] : [ r - CT, r + CT ],
-                    g: Array.isArray(g) ? [ g[0] - CT, g[1] + CT ] : [ g - CT, g + CT ],
-                    b: Array.isArray(b) ? [ b[0] - CT, b[1] + CT ] : [ b - CT, b + CT ],
-                    a: Array.isArray(a) ? [ a[0] - AT, a[1] + AT ] : [ a - AT, a + AT ]
-                };
+            it(`should have no top corners and edgy bottom corners`, () => {
+                // underline
+                const ul = suite.underlineColor;
 
-                // intermediate
-                const im = { a: [ 0, a + AT ] };
+                const topCorner = new Array(12).fill(new Array(12).fill(tp));
 
-                const corner = suite.outlineWidth === 2 ? [
-                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
-                    [ tp, tp, tp, tp, tp, im, im, im, ol, ol, ol, ol],
-                    [ tp, tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, im, im, im, ol, ol, ol, ol, ol, ol, ol],
-                    [ tp, im, im, ol, ol, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, im, ol, ol, ol, ol, ol, ol, im, im, im, im],
-                    [ im, im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, ol, ol, ol, im, tp, tp, tp, tp, tp]
+                const bottomCorner = suite.underlineWidth === 2 ? [
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ] : [
-                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
-                    [ tp, tp, tp, tp, tp, im, im, im, ol, ol, ol, ol],
-                    [ tp, tp, tp, tp, im, im, ol, ol, ol, ol, ol, ol],
-                    [ tp, tp, tp, im, im, ol, ol, ol, im, im, im, im],
-                    [ tp, tp, im, im, im, ol, im, im, im, tp, tp, tp],
-                    [ tp, im, im, ol, ol, im, im, tp, tp, tp, tp, tp],
-                    [ tp, im, ol, ol, im, im, tp, tp, tp, tp, tp, tp],
-                    [ im, im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, im, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ im, ol, ol, im, tp, tp, tp, tp, tp, tp, tp, tp]
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
+                    [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ];
 
-                const topLeft = context.getImageData3x(0, 6, 4, 4);
-                const topRight = context.getImageData3x(width - 4, 6, 4, 4);
+                const topLeft = context.getImageData3x(0, 0, 4, 4);
+                const topRight = context.getImageData3x(width - 4, 0, 4, 4);
                 const bottomRight = context.getImageData3x(width - 4, height - 4, 4, 4);
                 const bottomLeft = context.getImageData3x(0, height - 4, 4, 4);
 
-                isBrowserNot('Safari') && expect(topLeft).toResembleShape(corner, 0);
-                isBrowserNot('Safari') && expect(topRight).toResembleShape(corner, 90);
-                isBrowserNot('Safari') && expect(bottomRight).toResembleShape(corner, 180);
-                isBrowserNot('Safari') && expect(bottomLeft).toResembleShape(corner, 270);
+                expect(topLeft).toResembleShape(topCorner, 0);
+                expect(topRight).toResembleShape(topCorner, 0);
+                expect(bottomRight).toResembleShape(bottomCorner, 0);
+                expect(bottomLeft).toResembleShape(bottomCorner, 0);
             });
 
-            it('should have outline', () => {
-                // outline
-                const ol = suite.outlineColor;
+            it('should have underline', () => {
+                // underline
+                const ul = suite.underlineColor;
 
-                // body
-                const bd = suite.bodyColor;
+                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
 
-                const edge = suite.outlineWidth === 2
-                    ? [ ol, ol, ol, ol, ol, ol, bd, bd, bd, bd, bd, bd ]
-                    : [ ol, ol, ol, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
+                const underline = suite.underlineWidth === 2
+                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
+                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
 
-                const top = suite.labelFloating
-                    ? context.getImageData3x(80, 6, width - 84, 4)
-                    : context.getImageData3x(5, 6, width - 10, 4);
-                const right = context.getImageData3x(width - 4, 11, 4, height - 16);
-                const bottom = context.getImageData3x(5, height - 4, width - 10, 4);
-                const left = context.getImageData3x(0, 11, 4, height - 16);
+                const top = context.getImageData3x(4, 0, width - 8, 4);
+                const right = context.getImageData3x(width - 4, 4, 4, height - 8);
+                const bottom = context.getImageData3x(4, height - 4, width - 16, 4);
 
-                isBrowserNot('Safari') && expect(top).toResembleOblongShape(edge, 0);
-                expect(right).toResembleOblongShape(edge, 90);
-                isBrowserNot('Safari') && expect(bottom).toResembleOblongShape(edge, 180);
-                expect(left).toResembleOblongShape(edge, 270);
+                expect(top).toResembleOblongShape(transparent, 0);
+                expect(right).toResembleOblongShape(transparent, 90);
+                expect(bottom).toResembleOblongShape(underline, 180);
             });
 
             it('should have no shadow', () => {
@@ -486,7 +455,7 @@ describe('Outlined Textfield', () => {
     describe('in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/textfields/outlined/textfield-outlined');
+            setUp('src/components/textfields/standard/textfield-standard');
         });
 
         afterAll(() => {
@@ -496,7 +465,7 @@ describe('Outlined Textfield', () => {
         it('should have a height of 56px', () => {
             const { height } = document.querySelector('#normal').getBoundingClientRect();
 
-            expect(height).toBe(62);
+            expect(height).toBe(56);
         });
 
         it('should have variable-width', () => {
@@ -510,7 +479,7 @@ describe('Outlined Textfield', () => {
     describe('(textarea) in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/textfields/outlined/textfield-outlined');
+            setUp('src/components/textfields/standard/textfield-standard');
         });
 
         afterAll(() => {
@@ -521,7 +490,7 @@ describe('Outlined Textfield', () => {
             const { width, height } = document.querySelector('#ta-sized').getBoundingClientRect();
 
             expect(width).toBe(240);
-            expect(height).toBe(96);
+            expect(height).toBe(90);
         });
 
     });

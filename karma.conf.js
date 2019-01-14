@@ -11,15 +11,15 @@ module.exports = (config) => {
                 pattern: './test/matchers/**/*js'
             },
             {
-                pattern: './components/**/*.css',
+                pattern: './src/components/**/*.css',
                 type: 'css'
             },
             {
-                pattern: './components/**/*.spec.js',
+                pattern: './src/components/**/*.spec.js',
                 type: 'module'
             },
             {
-                pattern: './components/**/*.spec.html'
+                pattern: './src/components/**/*.spec.html'
             }
         ],
         exclude: [],

@@ -1,12 +1,12 @@
-import { setUp, tearDown } from '../../../test/helpers/fixture.js';
-import { capture3x } from '../../../test/helpers/capture.js';
+import { setUp, tearDown } from '../../../../test/helpers/fixture.js';
+import { capture3x } from '../../../../test/helpers/capture.js';
 
 const SPACING = 4;
 
 // transparent
 const tp = { a: 0 };
 
-describe('Standard Textfield', () => {
+describe('Filled Textfield', () => {
     
     [
         {
@@ -14,12 +14,12 @@ describe('Standard Textfield', () => {
             states: {
                 '#xmas > input': [ 'placeholder-shown' ]
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 10 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
             labelFloating: false,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 153 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 157 }
         },
         {
             label: 'hover',
@@ -27,19 +27,19 @@ describe('Standard Textfield', () => {
                 '#xmas': [ 'hover' ],
                 '#xmas > input': [ 'placeholder-shown' ]
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
             labelFloating: false,
             text: '',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 222 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 225 }
         },
         {
             label: 'focus',
             states: {
                 '#xmas > input': [ 'focus' ]
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 10 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
             labelFloating: true,
             text: '',
@@ -54,12 +54,12 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 10 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 153 },
+            underlineColor: { r: 0, g: 0, b: 0, a: 157 },
         },
         {
             label: 'hover & focus',
@@ -67,7 +67,7 @@ describe('Standard Textfield', () => {
                 '#xmas': [ 'hover' ],
                 '#xmas > input': [ 'focus' ]
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
             labelFloating: true,
             text: '',
@@ -83,12 +83,12 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 0, g: 0, b: 0, a: 153 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 0, g: 0, b: 0, a: 222 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 222 }
+            underlineColor: { r: 0, g: 0, b: 0, a: 225 }
         },
         {
             label: 'focus & nonempty',
@@ -98,7 +98,7 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 10 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
@@ -115,7 +115,7 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 20 },
             labelColor: { r: 33, g: 150, b: 243, a: 255 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
@@ -128,12 +128,12 @@ describe('Standard Textfield', () => {
             states: {
                 '#xmas > input': [ 'disabled', 'placeholder-shown' ]
             },
-            bodyColor: { a: 0 },
-            labelColor: { r: 0, g: 0, b: 0, a: 97 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 61 },
+            labelColor: { r: 0, g: 0, b: 0, a: 111 },
             labelFloating: false,
             text: '',
-            textColor: { r: 0, g: 0, b: 0, a: 97 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 97 }
+            textColor: { r: 0, g: 0, b: 0, a: 111 },
+            underlineColor: { r: 0, g: 0, b: 0, a: 135 }
         },
         {
             label: 'disabled & nonempty',
@@ -143,12 +143,12 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
-            labelColor: { r: 0, g: 0, b: 0, a: 97 },
+            bodyColor: { r: 0, g: 0, b: 0, a: 61 },
+            labelColor: { r: 0, g: 0, b: 0, a: 111 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
-            textColor: { r: 0, g: 0, b: 0, a: 97 },
-            underlineColor: { r: 0, g: 0, b: 0, a: 97 }
+            textColor: { r: 0, g: 0, b: 0, a: 111 },
+            underlineColor: { r: 0, g: 0, b: 0, a: 135 }
         },
         {
             label: 'customized & focus',
@@ -158,7 +158,7 @@ describe('Standard Textfield', () => {
                 },
                 '#xmas > input': [ 'focus' ]
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 255, g: 255, b: 255, a: 10 },
             labelColor: { r: 255, g: 0, b: 0, a: 255 },
             labelFloating: true,
             text: '',
@@ -176,12 +176,12 @@ describe('Standard Textfield', () => {
                     value: 'Ornaments & a Cat'
                 }
             },
-            bodyColor: { a: 0 },
+            bodyColor: { r: 255, g: 255, b: 255, a: 10 },
             labelColor: { r: 255, g: 255, b: 255, a: 153 },
             labelFloating: true,
             text: 'Ornaments & a Cat',
             textColor: { r: 255, g: 255, b: 255, a: 222 },
-            underlineColor: { r: [254, 255], g: [254, 255], b: [254, 255], a: 153 },
+            underlineColor: { r: [254, 255], g: [254, 255], b: [254, 255], a: 157 },
         }
     ].forEach((suite) => {
 
@@ -194,7 +194,7 @@ describe('Standard Textfield', () => {
             let context;
 
             beforeAll(async () => {
-                style = setUp('components/textfields/standard/textfield-standard', suite.states);
+                style = setUp('src/components/textfields/filled/textfield-filled', suite.states);
 
                 textfield = document.querySelector('#xmas');
                 const rect = textfield.getBoundingClientRect();
@@ -215,7 +215,7 @@ describe('Standard Textfield', () => {
 
             it('should have label', () => {
                 const label = suite.labelFloating
-                    ? context.getImageData3x(0, 0, width, 24)
+                    ? context.getImageData3x(0, 4, width, 20)
                     : context.getImageData3x(0, 24, width, height - 28);
 
                 expect(textfield.querySelector('span').innerText).toBe('Xmas Tree');
@@ -225,7 +225,7 @@ describe('Standard Textfield', () => {
             it('should have text', () => {
                 const text = suite.labelFloating
                     ? context.getImageData3x(0, 24, width, height - 28)
-                    : context.getImageData3x(0, 0, 1, 1);
+                    : context.getImageData3x(3, 3, 1, 1);
 
                 const expected = suite.text;
 
@@ -233,19 +233,38 @@ describe('Standard Textfield', () => {
                 expect(text).toResembleText(expected, suite.textColor, suite.bodyColor);
             });
 
-            it(`should have no top corners and edgy bottom corners`, () => {
+            it(`should have 4px round corners and edgy bottom corners`, () => {
+                // body
+                const bd = suite.bodyColor;
+                // intermediate
+                const im = {
+                    a: [ 0, typeof bd.a === 'number' ? bd.a : bd.a[1] ]
+                };
                 // underline
                 const ul = suite.underlineColor;
 
-                const topCorner = new Array(12).fill(new Array(12).fill(tp));
+                const topCorner = [
+                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
+                    [ tp, tp, tp, tp, tp, im, im, im, bd, bd, bd, bd],
+                    [ tp, tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd],
+                    [ tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd]
+                ];
 
                 const bottomCorner = suite.underlineWidth === 2 ? [
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
@@ -253,15 +272,15 @@ describe('Standard Textfield', () => {
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ] : [
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
@@ -273,27 +292,29 @@ describe('Standard Textfield', () => {
                 const bottomLeft = context.getImageData3x(0, height - 4, 4, 4);
 
                 expect(topLeft).toResembleShape(topCorner, 0);
-                expect(topRight).toResembleShape(topCorner, 0);
+                expect(topRight).toResembleShape(topCorner, 90);
                 expect(bottomRight).toResembleShape(bottomCorner, 0);
                 expect(bottomLeft).toResembleShape(bottomCorner, 0);
             });
 
             it('should have underline', () => {
+                // body
+                const bd = suite.bodyColor;
                 // underline
                 const ul = suite.underlineColor;
 
-                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                const body = [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const underline = suite.underlineWidth === 2
-                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
-                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                    ? [ ul, ul, ul, ul, ul, ul, bd, bd, bd, bd, bd, bd ]
+                    : [ ul, ul, ul, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const top = context.getImageData3x(4, 0, width - 8, 4);
                 const right = context.getImageData3x(width - 4, 4, 4, height - 8);
                 const bottom = context.getImageData3x(4, height - 4, width - 8, 4);
 
-                expect(top).toResembleOblongShape(transparent, 0);
-                expect(right).toResembleOblongShape(transparent, 90);
+                expect(top).toResembleOblongShape(body, 0);
+                expect(right).toResembleOblongShape(body, 90);
                 expect(bottom).toResembleOblongShape(underline, 180);
             });
 
@@ -331,7 +352,7 @@ describe('Standard Textfield', () => {
                     return object;
                 }, {});
 
-                style = setUp('components/textfields/standard/textfield-standard', states);
+                style = setUp('src/components/textfields/filled/textfield-filled', states);
 
                 textfield = document.querySelector('#ta-xmas');
                 const rect = textfield.getBoundingClientRect();
@@ -352,7 +373,7 @@ describe('Standard Textfield', () => {
 
             it('should have label', () => {
                 const label = suite.labelFloating
-                    ? context.getImageData3x(0, 0, width, 24)
+                    ? context.getImageData3x(0, 4, width, 20)
                     : context.getImageData3x(0, 24, width, 32);
 
                 expect(textfield.querySelector('span').innerText).toBe('Xmas Tree');
@@ -362,7 +383,7 @@ describe('Standard Textfield', () => {
             it('should have text', () => {
                 const text = suite.labelFloating
                     ? context.getImageData3x(0, 24, width, height - 28)
-                    : context.getImageData3x(0, 0, 1, 1);
+                    : context.getImageData3x(3, 3, 1, 1);
 
                 const expected = suite.text;
 
@@ -370,19 +391,38 @@ describe('Standard Textfield', () => {
                 expect(text).toResembleText(expected, suite.textColor, suite.bodyColor);
             });
 
-            it(`should have no top corners and edgy bottom corners`, () => {
+            it(`should have 4px round top corners and edgy bottom corners`, () => {
+                // body
+                const bd = suite.bodyColor;
+                // intermediate
+                const im = {
+                    a: [ 0, typeof bd.a === 'number' ? bd.a : bd.a[1] ]
+                };
                 // underline
                 const ul = suite.underlineColor;
 
-                const topCorner = new Array(12).fill(new Array(12).fill(tp));
+                const topCorner = [
+                    [ tp, tp, tp, tp, tp, tp, tp, im, im, im, im, im],
+                    [ tp, tp, tp, tp, tp, im, im, im, bd, bd, bd, bd],
+                    [ tp, tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd],
+                    [ tp, tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ tp, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ im, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd]
+                ];
 
                 const bottomCorner = suite.underlineWidth === 2 ? [
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
@@ -390,15 +430,15 @@ describe('Standard Textfield', () => {
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
                 ] : [
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
-                    [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
+                    [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul],
                     [ ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul, ul]
@@ -410,27 +450,29 @@ describe('Standard Textfield', () => {
                 const bottomLeft = context.getImageData3x(0, height - 4, 4, 4);
 
                 expect(topLeft).toResembleShape(topCorner, 0);
-                expect(topRight).toResembleShape(topCorner, 0);
+                expect(topRight).toResembleShape(topCorner, 90);
                 expect(bottomRight).toResembleShape(bottomCorner, 0);
                 expect(bottomLeft).toResembleShape(bottomCorner, 0);
             });
 
             it('should have underline', () => {
+                // body
+                const bd = suite.bodyColor;
                 // underline
                 const ul = suite.underlineColor;
 
-                const transparent = [ tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                const body = [ bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const underline = suite.underlineWidth === 2
-                    ? [ ul, ul, ul, ul, ul, ul, tp, tp, tp, tp, tp, tp ]
-                    : [ ul, ul, ul, tp, tp, tp, tp, tp, tp, tp, tp, tp ];
+                    ? [ ul, ul, ul, ul, ul, ul, bd, bd, bd, bd, bd, bd ]
+                    : [ ul, ul, ul, bd, bd, bd, bd, bd, bd, bd, bd, bd ];
 
                 const top = context.getImageData3x(4, 0, width - 8, 4);
                 const right = context.getImageData3x(width - 4, 4, 4, height - 8);
-                const bottom = context.getImageData3x(4, height - 4, width - 16, 4);
+                const bottom = context.getImageData3x(4, height - 4, width - 8, 4);
 
-                expect(top).toResembleOblongShape(transparent, 0);
-                expect(right).toResembleOblongShape(transparent, 90);
+                expect(top).toResembleOblongShape(body, 0);
+                expect(right).toResembleOblongShape(body, 90);
                 expect(bottom).toResembleOblongShape(underline, 180);
             });
 
@@ -455,7 +497,7 @@ describe('Standard Textfield', () => {
     describe('in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/textfields/standard/textfield-standard');
+            setUp('src/components/textfields/filled/textfield-filled');
         });
 
         afterAll(() => {
@@ -479,7 +521,7 @@ describe('Standard Textfield', () => {
     describe('(textarea) in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/textfields/standard/textfield-standard');
+            setUp('src/components/textfields/filled/textfield-filled');
         });
 
         afterAll(() => {

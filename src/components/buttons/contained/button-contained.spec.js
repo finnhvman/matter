@@ -1,5 +1,5 @@
-import { setUp, tearDown } from '../../../test/helpers/fixture.js';
-import { capture3x } from '../../../test/helpers/capture.js';
+import { setUp, tearDown } from '../../../../test/helpers/fixture.js';
+import { capture3x } from '../../../../test/helpers/capture.js';
 
 const SPACING = 6;
 
@@ -123,7 +123,7 @@ describe('Contained Button', () => {
             let context;
 
             beforeAll(async () => {
-                style = setUp('components/buttons/contained/button-contained', suite.states);
+                style = setUp('src/components/buttons/contained/button-contained', suite.states);
 
                 button = document.querySelector('#xmas');
                 const rect = button.getBoundingClientRect();
@@ -221,7 +221,7 @@ describe('Contained Button', () => {
     describe('in normal state', () => {
 
         beforeAll(() => {
-            setUp('components/buttons/contained/button-contained');
+            setUp('src/components/buttons/contained/button-contained');
         });
 
         afterAll(() => {
