@@ -14,7 +14,7 @@
     color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
     background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 36px;
@@ -101,7 +101,6 @@
 .matter-button-contained:disabled::after {
     opacity: 0;
 }
-
 .matter-button-outlined {
     position: relative;
     display: inline-block;
@@ -119,7 +118,7 @@
     text-transform: uppercase;
     color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: transparent;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 34px;
@@ -196,7 +195,6 @@
 .matter-button-outlined:disabled::after {
     opacity: 0;
 }
-
 .matter-button-text {
     position: relative;
     display: inline-block;
@@ -213,7 +211,7 @@
     text-transform: uppercase;
     color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: transparent;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 36px;
@@ -290,11 +288,10 @@
 .matter-button-text:disabled::after {
     opacity: 0;
 }
-
 .matter-textfield-filled {
     position: relative;
     display: inline-block;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;
     line-height: 1.5;
 }
@@ -413,7 +410,6 @@
         }
     }
 }
-
 .matter-textfield-outlined {
     --matter-safari-helper1: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
     --matter-safari-helper2: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
@@ -422,7 +418,7 @@
     position: relative;
     display: inline-block;
     padding-top: 6px;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;
     line-height: 1.5;
 }
@@ -601,11 +597,10 @@
         }
     }
 }
-
 .matter-textfield-standard {
     position: relative;
     display: inline-block;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;
     line-height: 1.5;
 }

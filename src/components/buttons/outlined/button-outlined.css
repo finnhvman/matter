@@ -15,7 +15,7 @@
     text-transform: uppercase;
     color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: transparent;
-    font-family: var(--matter-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 34px;
