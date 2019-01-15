@@ -38,6 +38,11 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
     <span>Textfield</span>
 </label>
 
+<!-- Tooltip (use a div to wrap component) -->
+<div class="matter-tooltip" aria-label="Tooltip">
+    <button class="matter-button-text">Button</button>
+</div>
+
 <!-- etc. -->
 ```
 
@@ -61,7 +66,7 @@ More components are coming, see below!
   - [x] Filled
   - [x] Outlined
   - [x] Standard
-- [ ] Tooltip
+- [x] Tooltip
 
 ## Contact
 

@@ -1,0 +1,43 @@
+.matter-tooltip {
+    position: relative;
+}
+
+.matter-tooltip::before,
+.matter-tooltip::after {
+    content: attr(aria-label);
+    z-index: 10;
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: rgb(var(--matter-surface-rgb, 255, 255, 255));
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 10px;
+    line-height: 16px;
+    white-space: nowrap;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    transition: transform 0.075s, opacity 0.075s;
+}
+
+.matter-tooltip::before {
+    color: transparent;
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.9);
+    filter: invert(38%);
+}
+
+.matter-tooltip:hover::before,
+.matter-tooltip:hover::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    transition: transform 0.15s, opacity 0.15s;
+}
+
+.matter-tooltip:focus-within::before,
+.matter-tooltip:focus-within::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    transition: transform 0.15s, opacity 0.15s;
+}
