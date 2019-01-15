@@ -7,7 +7,7 @@ const SPACING = 40;
 // transparent
 const tp = { a: 0 };
 
-fdescribe('Tooltip', () => {
+describe('Tooltip', () => {
 
     [
         {
