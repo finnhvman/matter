@@ -46,16 +46,17 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 <!-- etc. -->
 ```
 
-More components are coming, see below!
+Click the link of a component below to find more examples of its usage in the `.spec.html` file!
 
 ## Components
 
 ![13 Matter Components](./docs/hero.png)
 
+Implemented/Planned:
 - [x] Buttons
-  - [x] Contained
-  - [x] Outlined
-  - [x] Text
+  - [x] [Contained](./src/components/buttons/contained)
+  - [x] [Outlined](./src/components/buttons/outlined)
+  - [x] [Text](./src/components/buttons/text)
 - [ ] Progress Indicators
   - [ ] Circular
   - [ ] Linear
@@ -65,13 +66,13 @@ More components are coming, see below!
   - [ ] Switch
 - [ ] Slider
 - [x] Text Fields
-  - [x] Filled
-  - [x] Outlined
-  - [x] Standard
+  - [x] [Filled](./src/components/textfields/filled)
+  - [x] [Outlined](./src/components/textfields/outliined)
+  - [x] [Standard](./src/components/textfields/standard)
 - [x] [Tooltip](./src/components/tooltips)
 
 ## Contact
 
 If you have questions, feedback or anything to share related to the project, then you can contact me via:
 - Twitter [@finnhvman](https://twitter.com/finnhvman)
-- or [submit an issue](./issues)
+- or [submit an issue](https://github.com/finnhvman/matter/issues)
