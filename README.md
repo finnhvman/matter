@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../master/docs/m.svg" alt="Matter M logo" width="90" height="90">
+  <img src="./docs/m.svg" alt="Matter M logo" width="90" height="90">
 </p>
 
 <h1 align="center">Matter</h1>
@@ -50,6 +50,8 @@ More components are coming, see below!
 
 ## Components
 
+![13 Matter Components](./docs/hero.png)
+
 - [x] Buttons
   - [x] Contained
   - [x] Outlined
@@ -66,10 +68,10 @@ More components are coming, see below!
   - [x] Filled
   - [x] Outlined
   - [x] Standard
-- [x] Tooltip
+- [x] [Tooltip](./src/components/tooltips)
 
 ## Contact
 
 If you have questions, feedback or anything to share related to the project, then you can contact me via:
 - Twitter [@finnhvman](https://twitter.com/finnhvman)
-- or [submit an issue](https://github.com/finnhvman/matter/issues)
+- or [submit an issue](./issues)
