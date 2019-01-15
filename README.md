@@ -12,7 +12,7 @@
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1547585644/matter/matter-experimental-1.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
@@ -38,12 +38,13 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
     <span>Textfield</span>
 </label>
 
+<!-- etc. -->
+
+
 <!-- Tooltip (use a div to wrap component) -->
 <div class="matter-tooltip" aria-label="Tooltip">
     <button class="matter-button-text">Button</button>
 </div>
-
-<!-- etc. -->
 ```
 
 Click the link of a component below to find more examples of its usage in the `.spec.html` file!
@@ -52,7 +53,7 @@ Click the link of a component below to find more examples of its usage in the `.
 
 ![13 Matter Components](./docs/hero.png)
 
-Implemented/Planned:
+**Implemented/Planned:**
 - [x] Buttons
   - [x] [Contained](./src/components/buttons/contained)
   - [x] [Outlined](./src/components/buttons/outlined)
