@@ -28,7 +28,7 @@ beforeEach(() => {
         let errors = match(expected.a, a) ? '' : 'a';
         errors += match(expected.r, r) ? '' : 'r';
         errors += match(expected.g, g) ? '' : 'g';
-        errors += match(expected.g, g) ? '' : 'b';
+        errors += match(expected.b, b) ? '' : 'b';
         if (errors === '') {
             return ' ';
         } else if (errors.length === 1) {
@@ -180,6 +180,8 @@ beforeEach(() => {
                 const { data, width, height } = actual;
                 let passing = true;
                 let matrix = `|${'-'.repeat(width)}|\n|`;
+                let errors = '';
+                let errorCount = 0;
 
                 for (let y = 0; y < height; y++) {
                     for (let x = 0; x < width; x++) {
@@ -209,6 +211,13 @@ beforeEach(() => {
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
                         matrix += current;
                         passing = passing && current === ' ';
+
+                        if (current !== ' ') {
+                            if (errorCount < ERROR_LIMIT) {
+                                errors += `(${mappedX}, ${mappedY}): ${data[pixelIndex]}, ${data[pixelIndex + 1]}, ${data[pixelIndex + 2]}, ${data[pixelIndex + 3]})}\n`;
+                            }
+                            errorCount++;
+                        }
                     }
                     matrix += '|\n|';
                 }
@@ -216,7 +225,7 @@ beforeEach(() => {
 
                 return {
                     pass: passing,
-                    message: `Problems at ${rotateCW}deg:\n${matrix}`
+                    message: `Problems at ${rotateCW}deg:\n${matrix}\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
                 };
             }
         }),
@@ -253,6 +262,44 @@ beforeEach(() => {
                 return {
                     pass: passing,
                     message: `Problems at ${rotateCW}deg (first ${ERROR_LIMIT}):\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
+                };
+            }
+        }),
+        toResembleCircularShape: () => ({
+            compare: (actual, expected) => {
+                const { data, width, height } = actual;
+                let passing = true;
+                let errors = '';
+                let errorCount = 0;
+
+                const center = {
+                    x: width / 2,
+                    y: height / 2
+                };
+
+                for (let x = 0; x < width; x++) {
+                    for (let y = 0; y < height; y++) {
+                        const pixelIndex = width * y * 4 + x * 4;
+                        const dx = center.x - x - 0.5;
+                        const dy = center.y - y - 0.5;
+                        const mapped = Math.round(Math.sqrt(dx * dx + dy * dy));
+
+                        const current = matchPixel(expected[mapped],
+                            data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
+                        passing = passing && (current === ' ');
+
+                        if (current !== ' ') {
+                            if (errorCount < ERROR_LIMIT) {
+                                errors += `(${x}, ${y}), mapped ${mapped}: ${data[pixelIndex]}, ${data[pixelIndex + 1]}, ${data[pixelIndex + 2]}, ${data[pixelIndex + 3]})}\n`;
+                            }
+                            errorCount++;
+                        }
+                    }
+                }
+
+                return {
+                    pass: passing,
+                    message: `Problems (first ${ERROR_LIMIT}):\n${errors}\n${errorCount - ERROR_LIMIT} more errors.`
                 };
             }
         })
