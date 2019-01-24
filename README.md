@@ -8,11 +8,13 @@
 
 <p align="center">This project is work in progress, I am open-sourcing <a href="https://codepen.io/finnhvman/full/zMKagM">Pure CSS Material Components</a>.</p>
 
+![13 Matter Components](./docs/hero.png)
+
 ## 🎬 Get Started
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1547920822/matter/matter-experimental-2.css)
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1548351517/matter/matter-experimental-3.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
@@ -49,9 +51,7 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 
 Click the link of a component below to find more examples of its usage in the `.spec.html` file!
 
-## 🧩 Components
-
-![13 Matter Components](./docs/hero.png)
+## 📦 Components
 
 **Implemented/Planned:**
 - [x] Buttons
@@ -62,7 +62,7 @@ Click the link of a component below to find more examples of its usage in the `.
   - [ ] Circular
   - [ ] Linear
 - [ ] Selection Controls
-  - [ ] Checkbox
+  - [x] [Checkbox](./src/components/selection/checkbox)
   - [x] [Radio Button](./src/components/selection/radio)
   - [ ] Switch
 - [ ] Slider
@@ -76,4 +76,5 @@ Click the link of a component below to find more examples of its usage in the `.
 
 If you have questions, feedback or anything to share related to the project, then you can contact me via:
 - Twitter [@finnhvman](https://twitter.com/finnhvman)
+- Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
 - or [submit an issue](https://github.com/finnhvman/matter/issues)

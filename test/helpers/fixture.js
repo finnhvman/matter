@@ -45,7 +45,7 @@ const findStyleSheet = (styleSheets, href) => {
 };
 
 const replacePseudos = (cssText) => {
-    const regular = [ 'active', 'focus-within', 'focus', 'hover', 'placeholder-shown' ];
+    const regular = [ 'active', 'focus-within', 'focus', 'hover', 'indeterminate', 'placeholder-shown' ];
     return regular.reduce((css, pseudo) => css.replace(new RegExp(`:${pseudo}`, 'g'), `[${pseudo}]`), cssText);
 };
 

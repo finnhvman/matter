@@ -1,0 +1,56 @@
+<link href="checkbox.css" rel="stylesheet">
+
+<label class="matter-checkbox">
+    <input type="checkbox">
+    <span>Unchecked</span>
+</label>
+
+<br/><br/><br/>
+
+<label class="matter-checkbox">
+    <input type="checkbox">
+    <span>Indeterminate</span>
+</label>
+
+<br/><br/><br/>
+
+<label class="matter-checkbox">
+    <input type="checkbox" checked>
+    <span>Checked</span>
+</label>
+
+<br/><br/><br/>
+
+<label class="matter-checkbox">
+    <input type="checkbox" disabled>
+    <span>Disabled Unchecked</span>
+</label>
+
+<br/><br/><br/>
+
+<label class="matter-checkbox">
+    <input type="checkbox" disabled>
+    <span>Disabled Indeterminate</span>
+</label>
+
+<br/><br/><br/>
+
+<label class="matter-checkbox">
+    <input type="checkbox" checked disabled>
+    <span>Disabled Checked</span>
+</label>
+
+<br/><br/><br/>
+
+<label id="xmas" class="matter-checkbox">
+    <input type="checkbox">
+    <span>Xmas Tree</span>
+</label>
+
+<script>
+    document.querySelectorAll('.matter-checkbox').forEach((label) => {
+        if (0 <= label.innerText.indexOf('Indeterminate')) {
+            label.querySelector('input').indeterminate = true;
+        }
+    });
+</script>
