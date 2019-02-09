@@ -221,7 +221,7 @@ describe('Radio', () => {
 
                 const slice = [
                     ch, ch, ch, ch, ch, ch, ch, ch, ch, ch,
-                    ch, ch, ch, ch, ch, im, hl, hl, hl, hl,
+                    ch, ch, ch, ch, im, im, im, hl, hl, hl,
                     hl, hl, hl, im, im, im, rd, rd, rd, im,
                     im, im, hl, hl, hl, hl, hl, hl, hl, hl,
                     hl, hl, hl, hl, hl, hl, hl, hl, hl, hl,
