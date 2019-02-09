@@ -43,7 +43,7 @@ describe('Tooltip', () => {
                 }
             },
             textColor: { r: [0, 15], g: [0, 15], b: [0, 15], a: 255 },
-            bodyColor: { r: [157, 159], g: [157, 159], b: [157, 159], a: 230}
+            bodyColor: { r: [157, 160], g: [157, 160], b: [157, 160], a: 230}
         }
     ].forEach((suite) => {
 
@@ -59,7 +59,7 @@ describe('Tooltip', () => {
                 style = setUp('src/components/tooltips/tooltip', suite.states);
 
                 /* Snapping to exact pixels */
-                style += '.matter-tooltip::before, .matter-tooltip::after {min-width: 56px;}';
+                style += '[data-matter-tooltip]::after {min-width: 56px;}';
 
                 tooltipParent = document.querySelector('#xmas');
                 width = 72;
