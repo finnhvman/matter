@@ -90,10 +90,10 @@ This is **not** for complex apps and SPAs. Rather use the following libraries in
 * [Material Design for Angular](https://github.com/angular/material2)
 * [Material Components Web](https://github.com/material-components/material-components-web)
 
-## 🧭 Browser Support
+## 🌐 Browser Support
 
 <p align="center">
-  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520" height="104"><br/>
+  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520"><br/>
   <b>Targeted browsers</b>: Chrome, Firefox, Safari<br/>
   <b>Supported browsers</b>: Edge, Samsung Internet
 </p>
@@ -112,7 +112,7 @@ Matter is built with theming in mind. Its components can be customized by specif
 
 💎 Matter is solid. All the components are tested thoroughly to ensure rock-solid quality across all targeted browsers.
 
-💧 Matter is liquid. The components can be resized fluidly to match the layout needs otherwise they take up the size necessary.
+💧 Matter is liquid. Components can be resized fluidly to match layout needs, otherwise they take up the size necessary.
 
 🎈 Matter is gas. It's highly compressible so delivery can be performed in compact formats like gzip or brotli.
   
