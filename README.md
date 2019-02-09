@@ -63,14 +63,62 @@ Click the link of a component below to find more examples of its usage in the `.
   - [ ] Linear
 - [ ] Selection Controls
   - [x] [Checkbox](./src/components/selection/checkbox)
-  - [x] [Radio Button](./src/components/selection/radio)
+  - [x] [Radio](./src/components/selection/radio)
   - [ ] Switch
 - [ ] Slider
-- [x] Text Fields
+- [x] Textfields
   - [x] [Filled](./src/components/textfields/filled)
   - [x] [Outlined](./src/components/textfields/outlined)
   - [x] [Standard](./src/components/textfields/standard)
 - [x] [Tooltip](./src/components/tooltips)
+
+## 👋 Who is this for?
+
+**People** who work on:
+
+* Simple projects
+* Internal facing tools
+* Framework-less apps
+* Javascript-less apps
+* Proof of Concept and demo projects
+
+**Newcomers** to web development who want to build nice UIs quick and easy. 
+
+This is **not** for complex apps and SPAs. Rather use the following libraries in case of larger projects: 
+* [Material-UI (React)](https://github.com/mui-org/material-ui)
+* [Vuetify](https://github.com/vuetifyjs/vuetify)
+* [Material Design for Angular](https://github.com/angular/material2)
+* [Material Components Web](https://github.com/material-components/material-components-web)
+
+## 🧭 Browser Support
+
+<figure align="center">
+  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520" height="104">
+  <figcaption>
+    Targeted browsers: Chrome, Firefox, Safari<br/>
+    Supported browsers: Edge, Samsung Internet
+  </figcaption>
+</figure>
+
+Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in the three targeted browsers.
+
+VFTs are not executed for the rest of the supported browsers, however best effort manual testing is performed to ensure operability and display.
+
+## 🤔 Philosophy
+
+The purpose of Matter is to provide the most easy-to-use but accurate implementation of [Material Design Components](https://material.io/design/guidelines-overview/).  
+
+Matter has probably the lowest entry-barrier among Material Design Component libraries. The only technical knowledge needed to use it is basic HTML5. It doesn't rely on JavaScript, it only needs one to three HTML elements and a CSS class per component to work. The markup of the components is semantic by design.
+
+Matter is built with theming in mind. Its components can be customized by specifying certain colors and/or fonts. The granularity of customization is variable: components can be themed on global level, component level, component instance level, or on any level between.
+
+💎 Matter is solid. All the components are tested thoroughly to ensure rock-solid quality across all targeted browsers.
+
+💧 Matter is liquid. The components can be resized fluidly to match the layout needs otherwise they take up the size necessary.
+
+🎈 Matter is gas. It's highly compressible so delivery can be performed in compact formats like gzip or brotli.
+  
+⚡️ Matter is plasma. It's just CSS, relying almost exclusively on class selectors making it lightning fast.
 
 ## 💬 Contact
 
