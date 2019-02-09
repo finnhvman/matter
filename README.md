@@ -92,13 +92,11 @@ This is **not** for complex apps and SPAs. Rather use the following libraries in
 
 ## 🧭 Browser Support
 
-<figure align="center">
-  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520" height="104">
-  <figcaption>
-    Targeted browsers: Chrome, Firefox, Safari<br/>
-    Supported browsers: Edge, Samsung Internet
-  </figcaption>
-</figure>
+<p align="center">
+  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520" height="104"><br/>
+  <b>Targeted browsers</b>: Chrome, Firefox, Safari<br/>
+  <b>Supported browsers</b>: Edge, Samsung Internet
+</p>
 
 Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in the three targeted browsers.
 
