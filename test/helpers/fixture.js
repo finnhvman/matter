@@ -28,7 +28,7 @@ const getStyle = (styleSheets, href) => {
     let style = '';
     if (styleSheet) {
         for (let index = 0; index < styleSheet.cssRules.length; index++) {
-            style += replacePseudos(styleSheet.cssRules[index].cssText);
+            style += isMediaQuery(styleSheet.cssRules[index]) ? '' : replacePseudos(styleSheet.cssRules[index].cssText);
         }
     }
 
@@ -43,6 +43,8 @@ const findStyleSheet = (styleSheets, href) => {
     }
     return null;
 };
+
+const isMediaQuery = (cssRule) => cssRule.type === 4;
 
 const replacePseudos = (cssText) => {
     const regular = [ 'active', 'focus-within', 'focus', 'hover', 'indeterminate', 'placeholder-shown' ];

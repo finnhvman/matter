@@ -14,7 +14,7 @@
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1549748929/matter/matter-experimental-5.css)
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1550266033/matter/matter-experimental-6.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
@@ -44,7 +44,7 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 
 
 <!-- Tooltip (use a div to wrap component) -->
-<div class="matter-tooltip" data-matter-tooltip="Tooltip">
+<div data-matter-tooltip="Tooltip">
     <button class="matter-button-text">Button</button>
 </div>
 ```

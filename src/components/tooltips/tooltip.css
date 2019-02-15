@@ -6,18 +6,21 @@
     content: attr(data-matter-tooltip);
     z-index: 10;
     position: absolute;
-    bottom: -32px;
+    bottom: -40px;
     left: 50%;
     display: inline-block;
-    border-radius: 4px;
+    border: solid 8px transparent;
+    border-radius: 12px;
     padding: 4px 8px;
     color: rgb(var(--matter-surface-rgb, 255, 255, 255));
+    background-clip: padding-box;
     background-image: linear-gradient(rgba(var(--matter-surface-rgb, 255, 255, 255), 0.34), rgba(var(--matter-surface-rgb, 255, 255, 255), 0.34));
     background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.85);
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 10px;
     line-height: 16px;
     white-space: nowrap;
+    text-transform: none;
     transform: translateX(-50%) scale(0);
     opacity: 0;
     transition: transform 0.075s, opacity 0.075s;
@@ -33,4 +36,14 @@
     transform: translateX(-50%) scale(1);
     opacity: 1;
     transition: transform 0.15s, opacity 0.15s;
+}
+
+/* Non-desktop */
+@media (pointer: coarse), (hover: none) {
+    [data-matter-tooltip]::after {
+        bottom: -48px;
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 20px;
+    }
 }
