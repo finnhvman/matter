@@ -31,7 +31,7 @@ describe('Outlined Button', () => {
                 '#xmas.matter-button-outlined': [ 'focus' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] },
+            bodyColor: { r: [26, 34], g: [148, 153], b: [246, 247], a: [30, 31] },
             outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {
@@ -67,7 +67,7 @@ describe('Outlined Button', () => {
                 '#xmas.matter-button-outlined': [ 'focus', 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] },
+            bodyColor: { r: [26, 34], g: [148, 153], b: [246, 247], a: [30, 31] },
             outlineColor: { r: 0, g: 0, b: 0, a: [60, 61] }
         },
         {

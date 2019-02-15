@@ -29,7 +29,7 @@ describe('Text Button', () => {
                 '#xmas.matter-button-text': [ 'focus' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] }
+            bodyColor: { r: [26, 34], g: [148, 153], b: [246, 247], a: [30, 31] }
         },
         {
             label: 'active',
@@ -61,7 +61,7 @@ describe('Text Button', () => {
                 '#xmas.matter-button-text': [ 'focus', 'active' ]
             },
             textColor: { r: 33, g: 150, b: 243, a: 255 },
-            bodyColor: { r: [26, 33], g: [148, 153], b: [246, 247], a: [30, 31] }
+            bodyColor: { r: [26, 34], g: [148, 153], b: [246, 247], a: [30, 31] }
         },
         {
             label: 'hover, focus & active',

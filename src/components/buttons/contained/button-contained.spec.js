@@ -35,7 +35,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: 50, g: 158, b: 244, a: 255 },
+            bodyColor: { r: 50, g: 158, b: [243, 244], a: 255 },
             shadow: { side: sideShadow4 }
         },
         {
@@ -44,7 +44,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'focus' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: 86, g: 175, b: 246, a: 255 },
+            bodyColor: { r: [85, 86], g: 175, b: [245, 246], a: 255 },
             shadow: { side: sideShadow4 }
         },
         {
@@ -62,7 +62,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover', 'focus' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: [99, 100], g: [181, 182], b: 247, a: 255 },
+            bodyColor: { r: [99, 104], g: [181, 183], b: [246, 247], a: 255 },
             shadow: { side: sideShadow4 }
         },
         {
@@ -71,7 +71,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover', 'active' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: 50, g: 158, b: 244, a: 255 },
+            bodyColor: { r: 50, g: 158, b: [243, 244], a: 255 },
             shadow: { side: sideShadow8 }
         },
         {
@@ -80,7 +80,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'focus', 'active' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: 86, g: 175, b: 246, a: 255 },
+            bodyColor: { r: [85, 86], g: 175, b: [245, 246], a: 255 },
             shadow: { side: sideShadow8 }
         },
         {
@@ -89,7 +89,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover', 'focus', 'active' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: [99, 100], g: [181, 182], b: 247, a: 255 },
+            bodyColor: { r: [99, 104], g: [181, 183], b: [246, 247], a: 255 },
             shadow: { side: sideShadow8 }
         },
         {

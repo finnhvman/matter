@@ -18,43 +18,27 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 36px;
-    overflow: hidden;
     outline: none;
     cursor: pointer;
-    transition: box-shadow 0.2s;
+    transition: background-image 0.2s, box-shadow 0.2s;
 }
 
 .matter-button-contained::-moz-focus-inner {
     border: none;
 }
 
-/* Overlay */
+/* Ripple */
 .matter-button-contained::before {
     content: "";
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    bottom: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     opacity: 0;
-    transition: opacity 0.2s;
-}
-
-/* Ripple */
-.matter-button-contained::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 50%;
-    padding: 50%;
-    width: 32px; /* Safari */
-    height: 32px; /* Safari */
-    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
-    transition: opacity 1s, transform 0.5s;
+    transition: opacity 1s, background-size 0.5s;
 }
 
 /* Hover, Focus */
@@ -63,16 +47,16 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:hover::before {
-    opacity: 0.08;
+.matter-button-contained:hover {
+    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08));
 }
 
-.matter-button-contained:focus::before {
-    opacity: 0.24;
+.matter-button-contained:focus {
+    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24));
 }
 
-.matter-button-contained:hover:focus::before {
-    opacity: 0.3;
+.matter-button-contained:hover:focus {
+    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32));
 }
 
 /* Active */
@@ -80,10 +64,10 @@
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:active::after {
+.matter-button-contained:active::before {
     opacity: 0.32;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0s;
+    background-size: 100% 100%;
+    transition: background-size 0s;
 }
 
 /* Disabled */
@@ -95,9 +79,5 @@
 }
 
 .matter-button-contained:disabled::before {
-    opacity: 0;
-}
-
-.matter-button-contained:disabled::after {
     opacity: 0;
 }
