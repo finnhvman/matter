@@ -20,15 +20,16 @@
     line-height: 36px;
     outline: none;
     cursor: pointer;
-    transition: background-image 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
 }
 
 .matter-button-contained::-moz-focus-inner {
     border: none;
 }
 
-/* Ripple */
-.matter-button-contained::before {
+/* Highlight, Ripple */
+.matter-button-contained::before,
+.matter-button-contained::after {
     content: "";
     position: absolute;
     top: 0;
@@ -36,8 +37,16 @@
     right: 0;
     bottom: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     opacity: 0;
+}
+
+.matter-button-contained::before {
+    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    transition: opacity 0.2s;
+}
+
+.matter-button-contained::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     transition: opacity 1s, background-size 0.5s;
 }
 
@@ -47,16 +56,16 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:hover {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08));
+.matter-button-contained:hover::before {
+    opacity: 0.08;
 }
 
-.matter-button-contained:focus {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24));
+.matter-button-contained:focus::before {
+    opacity: 0.24;
 }
 
-.matter-button-contained:hover:focus {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32));
+.matter-button-contained:hover:focus::before {
+    opacity: 0.32;
 }
 
 /* Active */
@@ -64,7 +73,7 @@
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:active::before {
+.matter-button-contained:active::after {
     opacity: 0.32;
     background-size: 100% 100%;
     transition: background-size 0s;
@@ -78,6 +87,7 @@
     cursor: initial;
 }
 
-.matter-button-contained:disabled::before {
+.matter-button-contained:disabled::before,
+.matter-button-contained:disabled::after {
     opacity: 0;
 }

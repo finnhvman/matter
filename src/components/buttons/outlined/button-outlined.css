@@ -15,49 +15,56 @@
     text-transform: uppercase;
     color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: transparent;
-    background-clip: padding-box;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 34px;
     outline: none;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .matter-button-outlined::-moz-focus-inner {
     border: none;
 }
 
-/* Ripple */
-.matter-button-outlined::before {
+/* Highlight, Ripple */
+.matter-button-outlined::before,
+.matter-button-outlined::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
+    border-radius: 3px;
     opacity: 0;
+}
+
+.matter-button-outlined::before {
+    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    transition: opacity 0.2s;
+}
+
+.matter-button-outlined::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     transition: opacity 1s, background-size 0.5s;
 }
 
 /* Hover, Focus */
-.matter-button-outlined:hover {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.04);
+.matter-button-outlined:hover::before {
+    opacity: 0.04;
 }
 
-.matter-button-outlined:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.12);
+.matter-button-outlined:focus::before {
+    opacity: 0.12;
 }
 
-.matter-button-outlined:hover:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.16);
+.matter-button-outlined:hover:focus::before {
+    opacity: 0.16;
 }
 
 /* Active */
-.matter-button-outlined:active::before {
+.matter-button-outlined:active::after {
     opacity: 0.16;
     background-size: 100% 100%;
     transition: background-size 0s;
@@ -70,6 +77,7 @@
     cursor: initial;
 }
 
-.matter-button-outlined:disabled::before {
+.matter-button-outlined:disabled::before,
+.matter-button-outlined:disabled::after {
     opacity: 0;
 }

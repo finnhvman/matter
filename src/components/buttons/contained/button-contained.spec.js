@@ -62,7 +62,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover', 'focus' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: [99, 104], g: [181, 183], b: [246, 247], a: 255 },
+            bodyColor: { r: [99, 104], g: [181, 184], b: [246, 247], a: 255 },
             shadow: { side: sideShadow4 }
         },
         {
@@ -89,7 +89,7 @@ describe('Contained Button', () => {
                 '#xmas.matter-button-contained': [ 'hover', 'focus', 'active' ]
             },
             textColor: { r: 255, g: 255, b: 255, a: 255 },
-            bodyColor: { r: [99, 104], g: [181, 183], b: [246, 247], a: 255 },
+            bodyColor: { r: [99, 104], g: [181, 184], b: [246, 247], a: 255 },
             shadow: { side: sideShadow8 }
         },
         {

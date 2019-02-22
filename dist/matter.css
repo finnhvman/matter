@@ -102,15 +102,16 @@
     line-height: 36px;
     outline: none;
     cursor: pointer;
-    transition: background-image 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
 }
 
 .matter-button-contained::-moz-focus-inner {
     border: none;
 }
 
-/* Ripple */
-.matter-button-contained::before {
+/* Highlight, Ripple */
+.matter-button-contained::before,
+.matter-button-contained::after {
     content: "";
     position: absolute;
     top: 0;
@@ -118,8 +119,16 @@
     right: 0;
     bottom: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     opacity: 0;
+}
+
+.matter-button-contained::before {
+    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    transition: opacity 0.2s;
+}
+
+.matter-button-contained::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     transition: opacity 1s, background-size 0.5s;
 }
 
@@ -129,16 +138,16 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:hover {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.08));
+.matter-button-contained:hover::before {
+    opacity: 0.08;
 }
 
-.matter-button-contained:focus {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.24));
+.matter-button-contained:focus::before {
+    opacity: 0.24;
 }
 
-.matter-button-contained:hover:focus {
-    background-image: linear-gradient(rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32), rgba(var(--matter-onprimary-rgb, 255, 255, 255), 0.32));
+.matter-button-contained:hover:focus::before {
+    opacity: 0.32;
 }
 
 /* Active */
@@ -146,7 +155,7 @@
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.matter-button-contained:active::before {
+.matter-button-contained:active::after {
     opacity: 0.32;
     background-size: 100% 100%;
     transition: background-size 0s;
@@ -160,7 +169,8 @@
     cursor: initial;
 }
 
-.matter-button-contained:disabled::before {
+.matter-button-contained:disabled::before,
+.matter-button-contained:disabled::after {
     opacity: 0;
 }
 .matter-button-outlined {
@@ -180,49 +190,56 @@
     text-transform: uppercase;
     color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: transparent;
-    background-clip: padding-box;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
     font-weight: 500;
     line-height: 34px;
     outline: none;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .matter-button-outlined::-moz-focus-inner {
     border: none;
 }
 
-/* Ripple */
-.matter-button-outlined::before {
+/* Highlight, Ripple */
+.matter-button-outlined::before,
+.matter-button-outlined::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
+    border-radius: 3px;
     opacity: 0;
+}
+
+.matter-button-outlined::before {
+    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    transition: opacity 0.2s;
+}
+
+.matter-button-outlined::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     transition: opacity 1s, background-size 0.5s;
 }
 
 /* Hover, Focus */
-.matter-button-outlined:hover {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.04);
+.matter-button-outlined:hover::before {
+    opacity: 0.04;
 }
 
-.matter-button-outlined:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.12);
+.matter-button-outlined:focus::before {
+    opacity: 0.12;
 }
 
-.matter-button-outlined:hover:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.16);
+.matter-button-outlined:hover:focus::before {
+    opacity: 0.16;
 }
 
 /* Active */
-.matter-button-outlined:active::before {
+.matter-button-outlined:active::after {
     opacity: 0.16;
     background-size: 100% 100%;
     transition: background-size 0s;
@@ -235,7 +252,8 @@
     cursor: initial;
 }
 
-.matter-button-outlined:disabled::before {
+.matter-button-outlined:disabled::before,
+.matter-button-outlined:disabled::after {
     opacity: 0;
 }
 .matter-button-text {
@@ -260,15 +278,15 @@
     line-height: 36px;
     outline: none;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .matter-button-text::-moz-focus-inner {
     border: none;
 }
 
-/* Ripple */
-.matter-button-text::before {
+/* Highlight, Ripple */
+.matter-button-text::before,
+.matter-button-text::after {
     content: "";
     position: absolute;
     top: 0;
@@ -276,26 +294,34 @@
     right: 0;
     bottom: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     opacity: 0;
+}
+
+.matter-button-text::before {
+    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    transition: opacity 0.2s;
+}
+
+.matter-button-text::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
     transition: opacity 1s, background-size 0.5s;
 }
 
 /* Hover, Focus */
-.matter-button-text:hover {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.04);
+.matter-button-text:hover::before {
+    opacity: 0.04;
 }
 
-.matter-button-text:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.12);
+.matter-button-text:focus::before {
+    opacity: 0.12;
 }
 
-.matter-button-text:hover:focus {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.16);
+.matter-button-text:hover:focus::before {
+    opacity: 0.16;
 }
 
 /* Active */
-.matter-button-text:active::before {
+.matter-button-text:active::after {
     opacity: 0.16;
     background-size: 100% 100%;
     transition: background-size 0s;
@@ -308,7 +334,8 @@
     cursor: initial;
 }
 
-.matter-button-text:disabled::before {
+.matter-button-text:disabled::before,
+.matter-button-text:disabled::after {
     opacity: 0;
 }
 .matter-checkbox {
