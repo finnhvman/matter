@@ -1,28 +1,39 @@
-<link href="tooltip.css" rel="stylesheet">
+<link href="./tooltip.css" rel="stylesheet">
 
-<div data-matter-tooltip="Small Help" style="width: 120px;">
+<div aria-describedby="div-tooltip" style="position: relative;width: 120px;">
+    <span id="div-tooltip" class="matter-tooltip" aria-hidden="true"><span>Small Help</span></span>
     I'm a div
 </div>
 
 <br/><br/>
 
-<div data-matter-tooltip="Small Help" style="width: 240px;">
+<div aria-describedby="wide-div-tooltip" style="position: relative; width: 240px;">
+    <span id="wide-div-tooltip" class="matter-tooltip" aria-hidden="true"><span>Small Help</span></span>
     I'm a wider div
 </div>
 
 <br/><br/>
 
-<span data-matter-tooltip="Small Help">I'm just a span</span>
+<span aria-describedby="span-tooltip" style="position: relative;"><span id="span-tooltip" class="matter-tooltip" aria-hidden="true"><span>Small Help</span></span>I'm</span>
 
 <br/><br/><br/>
 
-<label data-matter-tooltip="Small Help">
-    Label
-    <input/>
+<div id="top" aria-describedby="top-tooltip" style="position: relative;width: 120px;">
+    <span id="top-tooltip" class="matter-tooltip-top" aria-hidden="true"><span>Small Help</span></span>
+    Top variant
+</div>
+
+<br/><br/>
+
+<label style="position: relative;">
+    <span id="input-tooltip" class="matter-tooltip" aria-hidden="true"><span>Small Help</span></span>
+    <input aria-describedby="input-tooltip"/>
+    <span>Label</span>
 </label>
 
 <br/><br><br/>
 
-<div id="xmas" data-matter-tooltip="Small Help" style="width: 120px;height: 20px;">
+<div id="xmas" aria-describedby="xmas-tooltip" style="position: relative; width: 120px;height: 20px;">
+    <span id="xmas-tooltip" class="matter-tooltip" aria-hidden="true"><span>Small Help</span></span>
     Xmas Tree
 </div>

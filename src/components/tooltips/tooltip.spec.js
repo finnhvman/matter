@@ -38,7 +38,7 @@ describe('Tooltip', () => {
             label: 'customized & hover',
             states: {
                 '#xmas': {
-                    style: '--matter-surface-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 120px;height: 20px;',
+                    style: '--matter-surface-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;position: relative;width: 120px;height: 20px;',
                     hover: ''
                 }
             },
@@ -58,8 +58,8 @@ describe('Tooltip', () => {
             beforeAll(async () => {
                 style = setUp('src/components/tooltips/tooltip', suite.states);
 
-                /* Snapping to exact pixels */
-                style += '[data-matter-tooltip]::after {min-width: 56px;}';
+                /* Snapping to exact pixels, and resetting sticky for Chrome */
+                style += '.matter-tooltip > span, .matter-tooltip-top > span {min-width: 56px; position: relative;}';
 
                 tooltipParent = document.querySelector('#xmas');
                 width = 72;
@@ -79,9 +79,9 @@ describe('Tooltip', () => {
 
             it('should have caption text', () => {
                 const caption = context.getImageData3x(28, 32, width - 8, height - 8);
-                const { content } = getComputedStyle(tooltipParent, '::after');
+                const tooltip = document.querySelector('#xmas > .matter-tooltip');
 
-                isBrowserNot('Firefox') && expect(content).toBe('"Small Help"'); // https://bugzilla.mozilla.org/show_bug.cgi?id=1337399
+                expect(tooltip.innerText).toBe('Small Help');
                 expect(caption).toResembleText('Small Help', suite.textColor, suite.bodyColor);
             });
 
@@ -166,8 +166,8 @@ describe('Tooltip', () => {
         beforeAll(async () => {
             style = setUp('src/components/tooltips/tooltip');
 
-            /* Making visual feature testing easier */
-            style += '.matter-tooltip::before, .matter-tooltip::after {min-width: 56px;}';
+            /* Snapping to exact pixels, and resetting sticky for Chrome */
+            style += '.matter-tooltip > span, .matter-tooltip-top > span {min-width: 56px; position: relative;}';
 
             tooltipParent = document.querySelector('#xmas');
             width = 72;
@@ -183,6 +183,38 @@ describe('Tooltip', () => {
             const component = context.getImageData3x(24, 28, width, height);
 
             expect(component).toResembleColor(tp);
+        });
+
+    });
+
+    describe('top variant in hover state', () => {
+
+        let style;
+        let tooltipParent;
+        let width;
+        let height;
+        let context;
+
+        beforeAll(async () => {
+            style = setUp('src/components/tooltips/tooltip', { '#top': [ 'hover' ] });
+
+            /* Snapping to exact pixels, and resetting sticky for Chrome */
+            style += '.matter-tooltip > span, .matter-tooltip-top > span {min-width: 56px; position: relative;}';
+
+            tooltipParent = document.querySelector('#top');
+            width = 72;
+            height = 24;
+            context = await capture3x(tooltipParent, style, SPACING);
+        });
+
+        afterAll(() => {
+            tearDown();
+        });
+
+        it('should have dominant { r: [95, 96], g: [95, 96], b: [95, 96], a: 230} color', () => {
+            const component = context.getImageData3x(24, -40, width, height);
+
+            expect(component).toResembleColor( { r: [95, 96], g: [95, 96], b: [95, 96], a: 230});
         });
 
     });

@@ -1,14 +1,35 @@
-[data-matter-tooltip] {
-    position: relative;
-}
-
-[data-matter-tooltip]::after {
-    content: attr(data-matter-tooltip);
+.matter-tooltip,
+.matter-tooltip-top {
     z-index: 10;
     position: absolute;
+    left: 0;
+    right: 0;
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 16px;
+    white-space: nowrap;
+    text-transform: none;
+    text-align: center;
+    pointer-events: none;
+}
+
+.matter-tooltip {
     bottom: -40px;
-    left: 50%;
+}
+
+.matter-tooltip-top {
+    top: -40px;
+}
+
+.matter-tooltip > span,
+.matter-tooltip-top > span {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    right: 0;
     display: inline-block;
+    margin: 0 -100vw;
     border: solid 8px transparent;
     border-radius: 12px;
     padding: 4px 8px;
@@ -16,34 +37,46 @@
     background-clip: padding-box;
     background-image: linear-gradient(rgba(var(--matter-surface-rgb, 255, 255, 255), 0.34), rgba(var(--matter-surface-rgb, 255, 255, 255), 0.34));
     background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.85);
-    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
-    font-size: 10px;
-    line-height: 16px;
-    white-space: nowrap;
-    text-transform: none;
-    transform: translateX(-50%) scale(0);
+    transform: scale(0);
     opacity: 0;
+    pointer-events: auto;
     transition: transform 0.075s, opacity 0.075s;
 }
 
-[data-matter-tooltip]:hover::after {
-    transform: translateX(-50%) scale(1);
+:not(html):hover > .matter-tooltip > span,
+.matter-tooltip:hover > span,
+:not(html):hover > .matter-tooltip-top > span,
+.matter-tooltip-top:hover > span {
+    transform: scale(1);
     opacity: 1;
     transition: transform 0.15s, opacity 0.15s;
 }
 
-[data-matter-tooltip]:focus-within::after {
-    transform: translateX(-50%) scale(1);
+:focus-within > .matter-tooltip > span,
+:focus-within > .matter-tooltip-top > span {
+    transform: scale(1);
     opacity: 1;
     transition: transform 0.15s, opacity 0.15s;
 }
 
 /* Non-desktop */
 @media (pointer: coarse), (hover: none) {
-    [data-matter-tooltip]::after {
-        bottom: -48px;
-        padding: 6px 16px;
+
+    .matter-tooltip,
+    .matter-tooltip-top {
         font-size: 14px;
         line-height: 20px;
+    }
+
+    .matter-tooltip {
+        bottom: -48px;
+    }
+    .matter-tooltip-top {
+        top: -48px;
+    }
+
+    .matter-tooltip > span,
+    .matter-tooltip-top > span {
+        padding: 6px 16px;
     }
 }

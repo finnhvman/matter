@@ -14,7 +14,7 @@
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1550266033/matter/matter-experimental-6.css)
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1550819828/matter/matter-experimental-7.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
@@ -43,10 +43,11 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 <!-- etc. -->
 
 
-<!-- Tooltip (use a div to wrap component) -->
-<div data-matter-tooltip="Tooltip">
-    <button class="matter-button-text">Button</button>
-</div>
+<!-- Tooltip (put as first child of the originating component, use unique id on tooltip and the same id for aria-describedby on the originating component) -->
+<button class="matter-button-text" aria-describedby="button-tooltip">
+    <span id="button-tooltip" class="matter-tooltip" aria-hidden="true"><span>Tooltip</span></span>
+    Button
+</button>
 ```
 
 Click the link of a component below to find more examples of its usage in the `.spec.html` file!
