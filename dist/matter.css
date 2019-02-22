@@ -348,54 +348,56 @@
     line-height: 1.5;
 }
 
-/* Input */
+/* Box */
 .matter-checkbox > input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    z-index: -1;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 3px 1px;
+    border: solid 2px; /* Safari */
+    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.matter-checkbox > input + span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: inherit;
+    cursor: pointer;
+}
+
+/* Highlight */
+.matter-checkbox > input + span::before {
+    content: "";
     position: absolute;
     left: -10px;
     top: -8px;
     display: block;
-    margin: 0;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     background-color: rgb(var(--matter-onsurface-rgb, 0, 0, 0));
-    box-shadow: none;
-    outline: none;
     opacity: 0;
     transform: scale(1);
     pointer-events: none;
     transition: opacity 0.3s, transform 0.2s;
 }
 
-/* Span */
-.matter-checkbox > span {
-    display: inline-block;
-    width: 100%;
-    cursor: pointer;
-}
-
-/* Box */
-.matter-checkbox > span::before {
+/* Check Mark */
+.matter-checkbox > input + span::after {
     content: "";
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 3px 11px 3px 1px;
-    border: solid 2px; /* Safari */
-    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
-    border-radius: 2px;
-    width: 18px;
-    height: 18px;
-    vertical-align: top;
-    transition: border-color 0.2s, background-color 0.2s;
-}
-
-/* Checkmark */
-.matter-checkbox > span::after {
-    content: "";
+    z-index: 1;
     display: block;
     position: absolute;
     top: 3px;
@@ -403,20 +405,22 @@
     width: 10px;
     height: 5px;
     border: solid 2px transparent;
-    border-right: none;
-    border-top: none;
+    border-right-width: 0;
+    border-top-width: 0;
+    pointer-events: none;
     transform: translate(3px, 4px) rotate(-45deg);
+    transition: border-color 0.2s;
 }
 
 /* Checked, Indeterminate */
 .matter-checkbox > input:checked,
 .matter-checkbox > input:indeterminate {
+    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
 }
 
 .matter-checkbox > input:checked + span::before,
 .matter-checkbox > input:indeterminate + span::before {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
     background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
 }
 
@@ -426,43 +430,50 @@
 }
 
 .matter-checkbox > input:indeterminate + span::after {
-    border-left: none;
+    border-left-width: 0;
     transform: translate(4px, 3px);
 }
 
 /* Hover, Focus */
-.matter-checkbox:hover > input {
+.matter-checkbox:hover > input + span::before {
     opacity: 0.04;
 }
 
-.matter-checkbox > input:focus {
+.matter-checkbox > input:focus + span::before {
     opacity: 0.12;
 }
 
-.matter-checkbox:hover > input:focus {
+.matter-checkbox:hover > input:focus + span::before {
     opacity: 0.16;
 }
 
 /* Active */
-.matter-checkbox > input:active,
-.matter-checkbox:hover > input:active {
+.matter-checkbox:active > input,
+.matter-checkbox:active:hover > input {
+    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+}
+
+.matter-checkbox:active > input:checked {
+    border-color: transparent;
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+}
+
+.matter-checkbox:active > input + span::before {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
 }
 
-.matter-checkbox > input:active + span::before {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
-}
-
-.matter-checkbox > input:checked:active + span::before {
-    border-color: transparent;
-    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
-}
-
 /* Disabled */
 .matter-checkbox > input:disabled {
-    opacity: 0;
+    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    cursor: initial;
+}
+
+.matter-checkbox > input:checked:disabled,
+.matter-checkbox > input:indeterminate:disabled {
+    border-color: transparent;
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
 }
 
 .matter-checkbox > input:disabled + span {
@@ -471,13 +482,8 @@
 }
 
 .matter-checkbox > input:disabled + span::before {
-    border-color: currentColor;
-}
-
-.matter-checkbox > input:checked:disabled + span::before,
-.matter-checkbox > input:indeterminate:disabled + span::before {
-    border-color: transparent;
-    background-color: currentColor;
+    opacity: 0;
+    transform: scale(0);
 }
 .matter-radio {
     z-index: 0;
@@ -489,52 +495,54 @@
     line-height: 1.5;
 }
 
-/* Input */
+/* Circle */
 .matter-radio > input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    z-index: -1;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 2px 0;
+    border: solid 2px; /* Safari */
+    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+/* Span */
+.matter-radio > input + span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: inherit;
+    cursor: pointer;
+}
+
+/* Highlight */
+.matter-radio > input + span::before {
+    content: "";
     position: absolute;
     left: -10px;
     top: -8px;
     display: block;
-    margin: 0;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     background-color: rgb(var(--matter-onsurface-rgb, 0, 0, 0));
-    outline: none;
     opacity: 0;
     transform: scale(0);
     pointer-events: none;
     transition: opacity 0.3s, transform 0.2s;
 }
 
-/* Span */
-.matter-radio > span {
-    display: inline-block;
-    width: 100%;
-    cursor: pointer;
-}
-
-/* Circle */
-.matter-radio > span::before {
-    content: "";
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 2px 10px 2px 0;
-    border: solid 2px; /* Safari */
-    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    vertical-align: top;
-    transition: border-color 0.2s;
-}
-
 /* Check Mark */
-.matter-radio > span::after {
+.matter-radio > input + span::after {
     content: "";
     display: block;
     position: absolute;
@@ -550,11 +558,11 @@
 
 /* Checked */
 .matter-radio > input:checked {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
 }
 
 .matter-radio > input:checked + span::before {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
 }
 
 .matter-radio > input:checked + span::after {
@@ -562,37 +570,37 @@
 }
 
 /* Hover, Focus */
-.matter-radio:hover > input {
+.matter-radio:hover > input + span::before {
     transform: scale(1);
     opacity: 0.04;
 }
 
-.matter-radio > input:focus {
+.matter-radio > input:focus + span::before  {
     transform: scale(1);
     opacity: 0.12;
 }
 
-.matter-radio:hover > input:focus {
+.matter-radio:hover > input:focus + span::before {
     transform: scale(1);
     opacity: 0.16;
 }
 
 /* Active */
-.matter-radio > input:active,
-.matter-radio:hover > input:active {
+.matter-radio:active > input {
+    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+}
+
+.matter-radio:active > input + span::before,
+.matter-radio:active:hover > input + span::before {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
 }
 
-.matter-radio > input:active + span::before {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
-}
-
 /* Disabled */
 .matter-radio > input:disabled {
-    opacity: 0;
-    transform: scale(0);
+    border-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    cursor: initial;
 }
 
 .matter-radio > input:disabled + span {
@@ -601,7 +609,8 @@
 }
 
 .matter-radio > input:disabled + span::before {
-    border-color: currentColor;
+    opacity: 0;
+    transform: scale(0);
 }
 
 .matter-radio > input:disabled + span::after {

@@ -37,7 +37,8 @@ describe('Checkbox', () => {
         {
             label: 'focus & active',
             states: {
-                '#xmas > input': [ 'active', 'focus' ]
+                '#xmas': [ 'active' ],
+                '#xmas > input': [ 'focus' ]
             },
             textColor: { r: 0, g: 0, b: 0, a: 222},
             boxColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -78,8 +79,8 @@ describe('Checkbox', () => {
         {
             label: 'hover, focus & active',
             states: {
-                '#xmas': [ 'hover' ],
-                '#xmas > input': [ 'active', 'focus' ]
+                '#xmas': [ 'active', 'hover' ],
+                '#xmas > input': [ 'focus' ]
             },
             textColor: { r: 0, g: 0, b: 0, a: 222 },
             boxColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -134,7 +135,8 @@ describe('Checkbox', () => {
         {
             label: 'focus, active & checked',
             states: {
-                '#xmas > input': [ 'active', 'focus', 'checked' ]
+                '#xmas': [ 'active' ],
+                '#xmas > input': [ 'focus', 'checked' ]
             },
             checked: true,
             checkColor: { r: 255, g: 255, b: 255, a: 255 },
@@ -145,7 +147,8 @@ describe('Checkbox', () => {
         {
             label: 'focus, active & indeterminate',
             states: {
-                '#xmas > input': [ 'active', 'focus', 'indeterminate' ]
+                '#xmas': [ 'active' ],
+                '#xmas > input': [ 'focus', 'indeterminate' ]
             },
             indeterminate: true,
             checkColor: { r: 255, g: 255, b: 255, a: 255 },
@@ -180,8 +183,8 @@ describe('Checkbox', () => {
         {
             label: 'hover, focus, active & checked',
             states: {
-                '#xmas': [ 'hover' ],
-                '#xmas > input': [ 'active', 'checked', 'focus' ]
+                '#xmas': [ 'active', 'hover' ],
+                '#xmas > input': [ 'checked', 'focus' ]
             },
             checked: true,
             checkColor: { r: 255, g: 255, b: 255, a: 255 },
@@ -192,8 +195,8 @@ describe('Checkbox', () => {
         {
             label: 'hover, focus, active & indeterminate',
             states: {
-                '#xmas': [ 'hover' ],
-                '#xmas > input': [ 'active', 'indeterminate', 'focus' ]
+                '#xmas': [ 'active', 'hover' ],
+                '#xmas > input': [ 'indeterminate', 'focus' ]
             },
             indeterminate: true,
             checkColor: { r: 255, g: 255, b: 255, a: 255 },

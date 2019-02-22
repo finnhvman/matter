@@ -37,7 +37,8 @@ describe('Radio', () => {
         {
             label: 'focus & active',
             states: {
-                '#xmas > input': [ 'active', 'focus' ]
+                '#xmas': [ 'active' ],
+                '#xmas > input': [ 'focus' ]
             },
             textColor: { r: 0, g: 0, b: 0, a: 222},
             radioColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -66,8 +67,8 @@ describe('Radio', () => {
         {
             label: 'hover, focus & active',
             states: {
-                '#xmas': [ 'hover' ],
-                '#xmas > input': [ 'active', 'focus' ]
+                '#xmas': [ 'active', 'hover' ],
+                '#xmas > input': [ 'focus' ]
             },
             textColor: { r: 0, g: 0, b: 0, a: 222 },
             radioColor: { r: 33, g: 150, b: 243, a: 255 },
@@ -97,7 +98,8 @@ describe('Radio', () => {
         {
             label: 'focus, active & checked',
             states: {
-                '#xmas > input': [ 'active', 'focus', 'checked' ]
+                '#xmas': [ 'active' ],
+                '#xmas > input': [ 'focus', 'checked' ]
             },
             checked: true,
             textColor: { r: 0, g: 0, b: 0, a: 222},
@@ -118,8 +120,8 @@ describe('Radio', () => {
         {
             label: 'hover, focus, active & checked',
             states: {
-                '#xmas': [ 'hover' ],
-                '#xmas > input': [ 'active', 'checked', 'focus' ]
+                '#xmas': [ 'active', 'hover' ],
+                '#xmas > input': [ 'checked', 'focus' ]
             },
             checked: true,
             textColor: { r: 0, g: 0, b: 0, a: 222},
