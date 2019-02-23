@@ -338,6 +338,96 @@
 .matter-button-text:disabled::after {
     opacity: 0;
 }
+.matter-progress-linear {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 160px;
+    height: 4px;
+    vertical-align: middle;
+    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.12);
+}
+
+.matter-progress-linear::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+/* Determinate */
+.matter-progress-linear::-webkit-progress-value {
+    background-color: currentColor;
+    transition: all 0.2s;
+}
+
+.matter-progress-linear::-moz-progress-bar {
+    background-color: currentColor;
+    transition: all 0.2s;
+}
+
+.matter-progress-linear::-ms-fill {
+    border: none;
+    background-color: currentColor;
+    transition: all 0.2s;
+}
+
+/* Indeterminate */
+.matter-progress-linear:indeterminate {
+    background-size: 200% 100%;
+    background-image:
+        linear-gradient(to right, currentColor 16%, transparent 16%),
+        linear-gradient(to right, currentColor 16%, transparent 16%),
+        linear-gradient(to right, currentColor 25%, transparent 25%);
+    animation: matter-progress-linear 1.8s infinite linear;
+}
+
+.matter-progress-linear:indeterminate::-webkit-progress-value {
+    background-color: transparent;
+}
+
+.matter-progress-linear:indeterminate::-moz-progress-bar {
+    background-color: transparent;
+}
+
+.matter-progress-linear:indeterminate::-ms-fill {
+    animation-name: none;
+}
+
+@keyframes matter-progress-linear {
+    0% {
+        background-position: 32% 0, 32% 0, 50% 0;
+    }
+    2% {
+        background-position: 32% 0, 32% 0, 50% 0;
+    }
+    21% {
+        background-position: 32% 0, -18% 0, 0 0;
+    }
+    42% {
+        background-position: 32% 0, -68% 0, -27% 0;
+    }
+    50% {
+        background-position: 32% 0, -93% 0, -46% 0;
+    }
+    56% {
+        background-position: 32% 0, -118% 0, -68% 0;
+    }
+    66% {
+        background-position: -11% 0, -200% 0, -100% 0;
+    }
+    71% {
+        background-position: -32% 0, -200% 0, -100% 0;
+    }
+    79% {
+        background-position: -54% 0, -242% 0, -100% 0;
+    }
+    86% {
+        background-position: -68% 0, -268% 0, -100% 0;
+    }
+    100% {
+        background-position: -100% 0, -300% 0, -100% 0;
+    }
+}
 .matter-checkbox {
     z-index: 0;
     position: relative;
