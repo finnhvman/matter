@@ -122,10 +122,10 @@ Matter is built with theming in mind. Its components can be customized by specif
 ## 💬 Contact
 
 If you have questions, feedback or anything to share related to the project, then you can contact me via:
-- Twitter [@finnhvman](https://twitter.com/finnhvman)
-- Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
-- or [submit an issue](https://github.com/finnhvman/matter/issues)
+* Twitter [@finnhvman](https://twitter.com/finnhvman)
+* Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
+* or [submit an issue](https://github.com/finnhvman/matter/issues)
 
 ## 🙏 Special Thanks to
 
-- [Scott O'Hara](https://twitter.com/scottohara) (accessibility)
+* [Scott O'Hara](https://twitter.com/scottohara) (accessibility)

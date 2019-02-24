@@ -34,8 +34,9 @@ module.exports = (config) => {
             outputFile: 'reports/unit-tests.html',
             pageTitle: 'Matter',
             subPageTitle: 'Unit Tests',
+            showOnlyFailed: true,
             groupSuites: true,
-            useCompactStyle: true,
+            useCompactStyle: true
         },
         port: 9876,
         colors: true,
