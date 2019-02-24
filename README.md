@@ -43,9 +43,9 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 <!-- etc. -->
 
 
-<!-- Tooltip (put as first child of the originating component, use unique id on tooltip and the same id for aria-describedby on the originating component) -->
+<!-- Tooltip (put as first child of the originating component, use unique id on inner span of tooltip and the same id for aria-describedby on the originating component) -->
 <button class="matter-button-text" aria-describedby="button-tooltip">
-    <span id="button-tooltip" class="matter-tooltip" aria-hidden="true"><span>Tooltip</span></span>
+    <span class="matter-tooltip"><span id="button-tooltip" aria-hidden="true">Tooltip</span></span>
     Button
 </button>
 ```
@@ -125,3 +125,7 @@ If you have questions, feedback or anything to share related to the project, the
 - Twitter [@finnhvman](https://twitter.com/finnhvman)
 - Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
 - or [submit an issue](https://github.com/finnhvman/matter/issues)
+
+## 🙏 Special Thanks to
+
+- [Scott O'Hara](https://twitter.com/scottohara) (accessibility)
