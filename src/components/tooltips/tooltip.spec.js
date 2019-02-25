@@ -1,6 +1,5 @@
 import { setUp, tearDown } from '../../../test/helpers/fixture.js';
 import { capture3x } from '../../../test/helpers/capture.js';
-import { isBrowserNot } from '../../../test/helpers/browser.js';
 
 const SPACING = 40;
 

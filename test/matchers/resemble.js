@@ -266,7 +266,7 @@ beforeEach(() => {
             }
         }),
         toResembleCircularShape: () => ({
-            compare: (actual, expected) => {
+            compare: (actual, expected, from = 0, to = 360) => {
                 const { data, width, height } = actual;
                 let passing = true;
                 let errors = '';
@@ -280,17 +280,19 @@ beforeEach(() => {
                 for (let x = 0; x < width; x++) {
                     for (let y = 0; y < height; y++) {
                         const pixelIndex = width * y * 4 + x * 4;
-                        const dx = center.x - x - 0.5;
-                        const dy = center.y - y - 0.5;
-                        const mapped = Math.round(Math.sqrt(dx * dx + dy * dy));
+                        const dx = x - center.x + 0.5;
+                        const dy = y - center.y + 0.5;
+                        const mapped = Math.round(Math.sqrt(dx ** 2 + dy ** 2));
+                        const angle = Math.atan(dy / dx) / Math.PI * 180 + (0 < dx ? 90 : 270);
 
-                        const current = matchPixel(expected[mapped],
+                        const inSector = from < to ? (from <= angle && angle <= to) : (from <= angle || angle <= to);
+                        const current = !inSector ? ' ' : matchPixel(expected[mapped],
                             data[pixelIndex], data[pixelIndex + 1], data[pixelIndex + 2], data[pixelIndex + 3]);
                         passing = passing && (current === ' ');
 
                         if (current !== ' ') {
                             if (errorCount < ERROR_LIMIT) {
-                                errors += `(${x}, ${y}), mapped ${mapped}: ${data[pixelIndex]}, ${data[pixelIndex + 1]}, ${data[pixelIndex + 2]}, ${data[pixelIndex + 3]})}\n`;
+                                errors += `(${x}, ${y}), mapped (${mapped}, ${angle.toFixed(2)}°): ${data[pixelIndex]}, ${data[pixelIndex + 1]}, ${data[pixelIndex + 2]}, ${data[pixelIndex + 3]}}\n`;
                             }
                             errorCount++;
                         }
