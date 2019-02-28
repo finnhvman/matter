@@ -20,7 +20,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: 0s; animation-play-state: paused;'
                 }
             },
-            fill: [ 0, 14 ],
+            fill: [ 346, 0 ],
             fillColor: { ...baseColor, a: 255}
         },
         {
@@ -31,7 +31,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: -0.75s; animation-play-state: paused;'
                 }
             },
-            fill: [ 180, 90 ],
+            fill: [ 166, 75 ],
             fillColor: { ...baseColor, a: [192, 255]}
         },
         {
@@ -42,7 +42,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: -1.5s; animation-play-state: paused;'
                 }
             },
-            fill: [ 270, 284 ],
+            fill: [ 256.5, 270 ],
             fillColor: { ...baseColor, a: 255}
         },
         {
@@ -53,7 +53,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: -3s; animation-play-state: paused;'
                 }
             },
-            fill: [ 180, 194 ],
+            fill: [ 166, 180 ],
             fillColor: { ...baseColor, a: 255}
         },
         {
@@ -64,7 +64,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: -4.5s; animation-play-state: paused;'
                 }
             },
-            fill: [ 90, 104 ],
+            fill: [ 76.5, 90 ],
             fillColor: { ...baseColor, a: 255}
         },
         {
@@ -75,7 +75,7 @@ describe('Circular Progress', () => {
                     style: 'animation-delay: -6s; animation-play-state: paused;'
                 }
             },
-            fill: [ 0, 14 ],
+            fill: [ 346, 0 ],
             fillColor: { ...baseColor, a: 255}
         },
         {
@@ -86,7 +86,7 @@ describe('Circular Progress', () => {
                     style: '--matter-primary-rgb: 255, 0, 0;animation-delay: 0s; animation-play-state: paused;'
                 }
             },
-            fill: [ 0, 14 ],
+            fill: [ 346, 0 ],
             fillColor: {r: 255, g: 0, b: 0, a: 255}
         }
     ].forEach((suite) => {
@@ -217,7 +217,7 @@ describe('Circular Progress', () => {
 
             const indicator = context.getImageData3x(-4, -4, 44, 44);
 
-            isBrowserNot('Safari') && expect(indicator).toResembleCircularShape(slice, 0, 14);
+            isBrowserNot('Safari') && expect(indicator).toResembleCircularShape(slice, 346.5, 0);
         });
 
         it('should have no shadow', () => {

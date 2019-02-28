@@ -1,6 +1,5 @@
 {
   "degradation": [
-    "Can't change color during animation on Safari",
     "Edge displays ms type of dot animation"
   ],
   "issues": [

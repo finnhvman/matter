@@ -20,8 +20,6 @@
 
 /* Indeterminate */
 .matter-progress-circular:indeterminate {
-    -webkit-mask-image: linear-gradient(transparent 50%, black 50%), linear-gradient(to right, transparent 50%, black 50%);
-    mask-image: linear-gradient(transparent 50%, black 50%), linear-gradient(to right, transparent 50%, black 50%);
     animation: matter-progress-circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
 }
 
@@ -35,12 +33,13 @@
     display: block;
     box-sizing: border-box;
     margin-bottom: 0.25em;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
+    border: solid 0.25em currentColor;
     border-radius: 50%;
     width: 100% !important;
     height: 100%;
     background-color: transparent;
+    -webkit-clip-path: polygon(50% 50%, 37% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+    clip-path: polygon(50% 50%, 37% 0, 50% 0, 50% 0, 50% 0, 50% 0);
     animation: matter-progress-circular-pseudo 0.75s infinite linear alternate;
     animation-play-state: inherit;
     animation-delay: inherit;
@@ -48,12 +47,12 @@
 
 .matter-progress-circular:indeterminate::-moz-progress-bar {
     box-sizing: border-box;
-    border: solid 0.25em transparent;
-    border-top-color: currentColor;
+    border: solid 0.25em currentColor;
     border-radius: 50%;
     width: 100%;
     height: 100%;
     background-color: transparent;
+    clip-path: polygon(50% 50%, 37% 0, 50% 0, 50% 0, 50% 0, 50% 0);
     animation: matter-progress-circular-pseudo 0.75s infinite linear alternate;
     animation-play-state: inherit;
     animation-delay: inherit;
@@ -99,23 +98,23 @@
 
 @keyframes matter-progress-circular-pseudo {
     0% {
-        transform: rotate(-30deg);
+        -webkit-clip-path: polygon(50% 50%, 37% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+        clip-path: polygon(50% 50%, 37% 0, 50% 0, 50% 0, 50% 0, 50% 0);
     }
-    29.4% {
-        border-left-color: transparent;
+    18% {
+        -webkit-clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 0, 100% 0, 100% 0);
+        clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 0, 100% 0, 100% 0);
     }
-    29.41% {
-        border-left-color: currentColor;
+    53% {
+        -webkit-clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+        clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
     }
-    64.7% {
-        border-bottom-color: transparent;
-    }
-    64.71% {
-        border-bottom-color: currentColor;
+    88% {
+        -webkit-clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+        clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
     }
     100% {
-        border-left-color: currentColor;
-        border-bottom-color: currentColor;
-        transform: rotate(225deg);
+        -webkit-clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 0 100%, 0 63%);
+        clip-path: polygon(50% 50%, 37% 0, 100% 0, 100% 100%, 0 100%, 0 63%);
     }
 }

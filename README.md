@@ -14,7 +14,7 @@
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551129071/matter/matter-experimental-11.css)
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551340296/matter/matter-experimental-12.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
