@@ -14,7 +14,7 @@
 
 Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551340296/matter/matter-experimental-12.css)
+1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551475775/matter/matter-experimental-13.css)
 2. Include it in your project or build pipeline
 3. Apply the class of your choice:
 ```html
@@ -62,10 +62,10 @@ Click the link of a component below to find more examples of its usage in the `.
 - [x] Progress Indicators
   - [x] [Circular](./src/components/progress/circular)
   - [x] [Linear](./src/components/progress/linear)
-- [ ] Selection Controls
+- [x] Selection Controls
   - [x] [Checkbox](./src/components/selection/checkbox)
   - [x] [Radio](./src/components/selection/radio)
-  - [ ] Switch
+  - [x] [Switch](./src/components/selection/switch)
 - [ ] Slider
 - [x] Textfields
   - [x] [Filled](./src/components/textfields/filled)
