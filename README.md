@@ -119,6 +119,18 @@ Click the link of a component in the next section to find more examples of its u
   * [x] [Standard](./src/components/textfields/standard)
 * [x] [Tooltip](./src/components/tooltips)
 
+## 🌐 Browser Support
+
+<p align="center">
+  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520"><br/>
+  <b>Targeted Browsers</b>: Chrome, Firefox, Safari<br/>
+  <b>Supported Browsers</b>: Edge, Samsung Internet
+</p>
+
+Automated tests are executed in targeted browsers and manual testing is performed in supported browsers.
+
+Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in targeted browsers. The tests reside in the `.spec.js` files in the component directories.
+
 ## 👋 Who Is This For?
 
 **People** who work on:
@@ -136,18 +148,6 @@ This is **not** for complex apps and SPAs. Rather use the following libraries in
 * [Vuetify](https://github.com/vuetifyjs/vuetify)
 * [Material Design for Angular](https://github.com/angular/material2)
 * [Material Components Web](https://github.com/material-components/material-components-web)
-
-## 🌐 Browser Support
-
-<p align="center">
-  <img src="./docs/browsers.png" alt="Chrome, Firefox, Safari, Edge, Samsung Internet" width="520"><br/>
-  <b>Targeted browsers</b>: Chrome, Firefox, Safari<br/>
-  <b>Supported browsers</b>: Edge, Samsung Internet
-</p>
-
-Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in the three targeted browsers.
-
-VFTs are not executed for the rest of the supported browsers, however best effort manual testing is performed to ensure operability and display.
 
 ## 🤔 Philosophy
 
