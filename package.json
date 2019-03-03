@@ -1,24 +1,30 @@
 {
   "name": "matter",
   "version": "0.0.1",
-  "description": "Material Components in Pure CSS",
+  "description": "Material Design Components in Pure CSS",
+  "repository": "finnhvman/matter",
   "author": "Ben Szabo (finnhvman)",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dist": "cat src/components/*/*.css src/components/*/*/*.css > dist/matter.css",
+    "dist": "node scripts/dist.js",
     "test": "karma start karma.conf.js",
+    "patch": "karma start karma.conf.js --single-run && node scripts/dist.js && npm --no-git-tag-version version patch",
+    "minor": "karma start karma.conf.js --single-run && node scripts/dist.js && npm --no-git-tag-version version minor",
     "merge": "node scripts/merge.js"
   },
   "devDependencies": {
+    "cssnano": "4.1.10",
     "jasmine": "3.3.1",
-    "karma": "4.0.0",
+    "karma": "4.0.1",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
     "karma-html2js-preprocessor": "1.1.0",
     "karma-htmlfile-reporter": "0.3.8",
     "karma-jasmine": "2.0.1",
     "karma-safari-private-launcher": "1.0.0",
-    "pngjs": "3.3.3"
+    "pngjs": "3.3.3",
+    "postcss": "7.0.14",
+    "postcss-import": "12.0.1"
   }
 }
