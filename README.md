@@ -63,14 +63,14 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 
 ### Textfields
 ```html
-<!-- Textfield Markup with <input> (Keep the placeholder attribute as it is!);
+<!-- Textfield Markup with <input> (Keep the placeholder attribute as it is!); -->
 <!-- Classes: matter-textfield-filled, matter-textfield-outlined, matter-textfield-standard -->
 <label class="matter-textfield-filled">
     <input placeholder=" "/>
     <span>Textfield</span>
 </label>
 
-<!-- Textfield Markup with <textarea> (Keep the placeholder attribute as it is!);
+<!-- Textfield Markup with <textarea> (Keep the placeholder attribute as it is!); -->
 <!-- Classes: matter-textfield-filled, matter-textfield-outlined, matter-textfield-standard -->
 <label class="matter-textfield-filled">
     <textarea placeholder=" "></textarea>
@@ -91,6 +91,8 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
     <span>Outlined Textfield with Tooltip</span>
 </label>
 ```
+
+---
 
 Use standard HTML5 attributes like `autofocus`, `disabled`, `required`, etc. where applicable to further configure components.
 
