@@ -12,11 +12,18 @@
 
 ## 🎬 Get Started
 
-Configurable builds, CDN support, and more are coming soon! Right now the process is manual:
+1. Get Matter in one of the following ways:<br/><br/>
+    **Normal build** from CDN (include this in `<head>`):
+    ```html
+    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.1.0.css" rel="stylesheet">
+    ```
+    **Minified build** from CDN (include this in `<head>`):
+    ```html
+    <link href="https://res.cloudinary.com/finnhvman/raw/upload/v1551637525/matter/matter-0.1.0.min.css" rel="stylesheet">
+    ```
+    **Download a build** from the assets of a release in [Releases](https://github.com/finnhvman/matter/releases), and include it in your project
 
-1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551475775/matter/matter-experimental-13.css)
-2. Include it in your project or build pipeline
-3. Use the Markup and apply the Class of your choice:
+2. Use the Markup and apply the Class of your choice:
 
 ### Buttons
 ```html
@@ -129,7 +136,7 @@ Click the link of a component in the next section to find more examples of its u
 
 Automated tests are executed in targeted browsers and manual testing is performed in supported browsers.
 
-Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in targeted browsers. The tests reside in the `.spec.js` files in the component directories.
+Matter components are well-covered with **Visual Feature Tests** (**VFTs**). Visual Feature Tests verify certain visual parts of components like: dominant color, shape of corners (rounded/sharp), types of edges (outlined or not), shadows, and more. VFTs are executed for every component in various states (like hover, focus, active, etc. and their permutations) in targeted browsers. VFTs reside in the `.spec.js` files of the components.
 
 ## 👋 Who Is This For?
 

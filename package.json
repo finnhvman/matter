@@ -1,6 +1,6 @@
 {
   "name": "matter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Material Design Components in Pure CSS",
   "repository": "finnhvman/matter",
   "author": "Ben Szabo (finnhvman)",
@@ -9,8 +9,8 @@
   "scripts": {
     "dist": "node scripts/dist.js",
     "test": "karma start karma.conf.js",
-    "patch": "karma start karma.conf.js --single-run && node scripts/dist.js && npm --no-git-tag-version version patch",
-    "minor": "karma start karma.conf.js --single-run && node scripts/dist.js && npm --no-git-tag-version version minor",
+    "patch": "karma start karma.conf.js --single-run && npm --no-git-tag-version version patch && node scripts/dist.js",
+    "minor": "karma start karma.conf.js --single-run && npm --no-git-tag-version version minor && node scripts/dist.js",
     "merge": "node scripts/merge.js"
   },
   "devDependencies": {
