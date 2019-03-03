@@ -6,7 +6,7 @@
     right: 0;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 10px;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 16px;
     white-space: nowrap;
     text-transform: none;
