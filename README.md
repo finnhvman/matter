@@ -16,41 +16,85 @@ Configurable builds, CDN support, and more are coming soon! Right now the proces
 
 1. Download `matter.css` from `dist` folder. (**For experimenting** you can also use it from CDN, **not production grade**: https://res.cloudinary.com/finnhvman/raw/upload/v1551475775/matter/matter-experimental-13.css)
 2. Include it in your project or build pipeline
-3. Apply the class of your choice:
+3. Use the Markup and apply the Class of your choice:
+
+### Buttons
 ```html
-<!-- Contained Button -->
+<!-- Button Markup; Classes: matter-button-contained, matter-button-outlined, matter-button-text -->
 <button class="matter-button-contained">Button</button>
 
-<!-- Outlined Button -->
-<button class="matter-button-outlined">Button</button>
+<!-- Button Examples: Contained, Outlined and Text Buttons -->
+<button class="matter-button-contained">Contained</button>
 
-<!-- Text Button -->
-<button class="matter-button-text">Button</button>
+<button class="matter-button-outlined">Outlined</button>
 
+<button class="matter-button-text">Text</button>
+```
 
-<!-- Filled Textfield (keep the placeholder attribute as it is) -->
+### Progress Indicators
+```html
+<!-- Progress Markup (indeterminate); Classes: matter-progress-linear, matter-progress-circular -->
+<progress class="matter-progress-linear"></progress>
+
+<!-- Progress Markup (determinate); Class: matter-progress-linear -->
+<progress class="matter-progress-linear" value="50" max="100"></progress>
+```
+
+### Selection Controls
+```html
+<!-- Checkbox Markup; Class: matter-checkbox -->
+<label class="matter-checkbox">
+    <input type="checkbox">
+    <span>Checkbox</span>
+</label>
+
+<!-- Radio Markup; Class: matter-radio -->
+<label class="matter-radio">
+    <input type="radio" name="group">
+    <span>Radio</span>
+</label>
+
+<!-- Switch Markup; Class: matter-switch -->
+<label class="matter-switch">
+    <input type="checkbox" role="switch">
+    <span>Switch</span>
+</label>
+```
+
+### Textfields
+```html
+<!-- Textfield Markup with <input> (Keep the placeholder attribute as it is!);
+<!-- Classes: matter-textfield-filled, matter-textfield-outlined, matter-textfield-standard -->
 <label class="matter-textfield-filled">
     <input placeholder=" "/>
     <span>Textfield</span>
 </label>
 
-<!-- Filled Textfield (textarea) (keep the placeholder attribute as it is) -->
+<!-- Textfield Markup with <textarea> (Keep the placeholder attribute as it is!);
+<!-- Classes: matter-textfield-filled, matter-textfield-outlined, matter-textfield-standard -->
 <label class="matter-textfield-filled">
     <textarea placeholder=" "></textarea>
     <span>Textfield</span>
 </label>
-
-<!-- etc. -->
-
-
-<!-- Tooltip (put as first child of the originating component, use unique id on inner span of tooltip and the same id for aria-describedby on the originating component) -->
-<button class="matter-button-text" aria-describedby="button-tooltip">
-    <span class="matter-tooltip"><span id="button-tooltip" aria-hidden="true">Tooltip</span></span>
-    Button
-</button>
 ```
 
-Click the link of a component below to find more examples of its usage in the `.spec.html` file!
+### Tooltips
+```html
+<!-- Tooltip Markup; Classes: matter-tooltip, matter-tooltip-top -->
+<span class="matter-tooltip"><span id="tooltip-id" aria-hidden="true">Tooltip</span></span>
+
+<!-- Put as first child of originating component -->
+<!-- Use unique id on inner span of tooltip, refer it with aria-describedby in originating component -->
+<label class="matter-textfield-outlined">
+    <span class="matter-tooltip"><span id="tooltip" aria-hidden="true">Tooltip</span></span>
+    <input placeholder=" " aria-describedby="tooltip"/>
+    <span>Outlined Textfield with Tooltip</span>
+</label>
+```
+
+Use standard HTML5 attributes like `autofocus`, `disabled`, `required`, etc. where applicable to further configure components.
+
+Click the link of a component in the next section to find more examples of its usage in the `.spec.html` file!
 
 ## 📦 Components
 
