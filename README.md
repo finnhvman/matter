@@ -4,9 +4,9 @@
 
 <h1 align="center">Matter</h1>
 
-<p align="center">Material Components in Pure CSS</p>
+<p align="center">Material Design Components in Pure CSS</p>
 
-<p align="center">This project is work in progress, I am open-sourcing <a href="https://codepen.io/finnhvman/full/zMKagM">Pure CSS Material Components</a>.</p>
+<p align="center">Materializing HTML at Just One Class per Component (<a href="https://codepen.io/finnhvman/full/zMKagM">ex-Pure CSS Material Components</a>)</p>
 
 ![13 Matter Components](./docs/hero.png)
 
@@ -55,25 +55,25 @@ Click the link of a component below to find more examples of its usage in the `.
 ## 📦 Components
 
 **Implemented/Planned:**
-- [x] Buttons
-  - [x] [Contained](./src/components/buttons/contained)
-  - [x] [Outlined](./src/components/buttons/outlined)
-  - [x] [Text](./src/components/buttons/text)
-- [x] Progress Indicators
-  - [x] [Circular](./src/components/progress/circular)
-  - [x] [Linear](./src/components/progress/linear)
-- [x] Selection Controls
-  - [x] [Checkbox](./src/components/selection/checkbox)
-  - [x] [Radio](./src/components/selection/radio)
-  - [x] [Switch](./src/components/selection/switch)
-- [ ] Slider
-- [x] Textfields
-  - [x] [Filled](./src/components/textfields/filled)
-  - [x] [Outlined](./src/components/textfields/outlined)
-  - [x] [Standard](./src/components/textfields/standard)
-- [x] [Tooltip](./src/components/tooltips)
+* [x] Buttons
+  * [x] [Contained](./src/components/buttons/contained)
+  * [x] [Outlined](./src/components/buttons/outlined)
+  * [x] [Text](./src/components/buttons/text)
+* [x] Progress Indicators
+  * [x] [Circular](./src/components/progress/circular)
+  * [x] [Linear](./src/components/progress/linear)
+* [x] Selection Controls
+  * [x] [Checkbox](./src/components/selection/checkbox)
+  * [x] [Radio](./src/components/selection/radio)
+  * [x] [Switch](./src/components/selection/switch)
+* [ ] Slider
+* [x] Textfields
+  * [x] [Filled](./src/components/textfields/filled)
+  * [x] [Outlined](./src/components/textfields/outlined)
+  * [x] [Standard](./src/components/textfields/standard)
+* [x] [Tooltip](./src/components/tooltips)
 
-## 👋 Who is this for?
+## 👋 Who Is This For?
 
 **People** who work on:
 
@@ -126,6 +126,6 @@ If you have questions, feedback or anything to share related to the project, the
 * Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
 * or [submit an issue](https://github.com/finnhvman/matter/issues)
 
-## 🙏 Special Thanks to
+## 🙏 Special Thanks To
 
 * [Scott O'Hara](https://twitter.com/scottohara) (accessibility)
