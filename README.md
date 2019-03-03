@@ -19,7 +19,7 @@
     ```
     **Minified build** from CDN (include this in `<head>`):
     ```html
-    <link href="https://res.cloudinary.com/finnhvman/raw/upload/v1551637525/matter/matter-0.1.0.min.css" rel="stylesheet">
+    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.1.0.min.css" rel="stylesheet">
     ```
     **Download a build** from the assets of a release in [Releases](https://github.com/finnhvman/matter/releases), and include it in your project
 
