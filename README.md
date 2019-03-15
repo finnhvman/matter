@@ -6,7 +6,7 @@
 
 <p align="center">Material Design Components in Pure CSS</p>
 
-<p align="center">Materializing HTML at Just One Class per Component (<a href="https://codepen.io/finnhvman/full/zMKagM">ex-Pure CSS Material Components</a>)</p>
+<p align="center">Materializing HTML at just one class per component (<a href="https://codepen.io/finnhvman/full/zMKagM">ex-Pure CSS Material Components</a>)</p>
 
 ![13 Matter Components](./docs/hero.png)
 
@@ -108,7 +108,7 @@
 
 ---
 
-Use standard HTML5 attributes like `autofocus`, `disabled`, `required`, etc. where applicable to further configure components.
+Use standard HTML attributes like `autofocus`, `disabled`, `required`, etc. where applicable to further configure components.
 
 Click the link of a component in the next section to find more examples of its usage in the `.spec.html` file!
 
