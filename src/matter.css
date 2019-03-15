@@ -1,3 +1,6 @@
 
 /* Components */
 @import "./components/components.css";
+
+/* Utilities */
+@import "./utilities/utilities.css";

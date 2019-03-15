@@ -1,0 +1,105 @@
+.matter-h1 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 96px;
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    line-height: 120px;
+}
+
+.matter-h2 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    line-height: 80px;
+}
+
+.matter-h3 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 64px;
+}
+
+.matter-h4 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 48px;
+}
+
+.matter-h5 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 36px;
+}
+
+.matter-h6 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    line-height: 28px;
+}
+
+.matter-subtitle1 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+}
+
+.matter-subtitle2 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    line-height: 20px;
+}
+
+.matter-body1 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+}
+
+.matter-body2 {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    line-height: 20px;
+}
+
+.matter-button {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.matter-caption {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    line-height: 20px;
+}
+
+.matter-overline {
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 16px;
+}

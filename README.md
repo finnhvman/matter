@@ -99,13 +99,20 @@
 </label>
 ```
 
+### Typography
+```html
+<!-- Typography Classes: matter-h1, ..., matter-h6, matter-subtitle1, matter-subtitle2, -->
+<!-- matter-body1, matter-body2, matter-button, matter-caption, matter-overline -->
+<p class="matter-body1">Your paragraph here</p>
+```
+
 ---
 
 Use standard HTML5 attributes like `autofocus`, `disabled`, `required`, etc. where applicable to further configure components.
 
 Click the link of a component in the next section to find more examples of its usage in the `.spec.html` file!
 
-## 📦 Components
+## 📦 Components & Utilities
 
 **Implemented/Planned:**
 * [x] Buttons
@@ -125,6 +132,7 @@ Click the link of a component in the next section to find more examples of its u
   * [x] [Outlined](./src/components/textfields/outlined)
   * [x] [Standard](./src/components/textfields/standard)
 * [x] [Tooltip](./src/components/tooltips)
+* [x] [Typography](./src/utilities/typography)
 
 ## 🌐 Browser Support
 
