@@ -165,7 +165,7 @@ describe('Switch', () => {
             label: 'customized',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onprimary-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 150px;'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-surface-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 150px;'
                 }
             },
             textColor: { r: 255, g: 255, b: 255, a: 222},
@@ -177,7 +177,7 @@ describe('Switch', () => {
             label: 'customized & checked',
             states: {
                 '#xmas': {
-                    style: '--matter-primary-rgb: 255, 0, 0;--matter-onprimary-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 150px;'
+                    style: '--matter-primary-rgb: 255, 0, 0;--matter-surface-rgb: 0, 0, 0;--matter-onsurface-rgb: 255, 255, 255;width: 150px;'
                 },
                 '#xmas > input': [ 'checked' ]
             },
