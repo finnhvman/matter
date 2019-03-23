@@ -13,7 +13,6 @@
     vertical-align: middle;
     text-align: center;
     text-overflow: ellipsis;
-    text-transform: uppercase;
     color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);

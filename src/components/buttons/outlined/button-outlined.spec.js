@@ -129,7 +129,7 @@ describe('Outlined Button', () => {
                 expect(component).toResembleColor(suite.bodyColor);
             });
 
-            it('should have uppercase caption text', () => {
+            it('should have caption text', () => {
                 const caption = context.getImageData3x(4, 4, width - 8, height - 8);
 
                 expect(button.innerText).toBe('XMAS TREE');

@@ -28,21 +28,21 @@
 ### Buttons
 ```html
 <!-- Button Markup; Classes: matter-button-contained, matter-button-outlined, matter-button-text -->
-<button class="matter-button-contained">Button</button>
+<button class="matter-button-contained">BUTTON</button>
 
 <!-- Button Examples: Contained, Outlined and Text Buttons -->
-<button class="matter-button-contained">Contained</button>
+<button class="matter-button-contained">CONTAINED</button>
 
-<button class="matter-button-outlined">Outlined</button>
+<button class="matter-button-outlined">OUTLINED</button>
 
-<button class="matter-button-text">Text</button>
+<button class="matter-button-text">TEXT</button>
 ```
 
 ### Colors
 ```html
 <!-- Change the color of components -->
 <!-- Classes: matter-primary, matter-secondary, matter-error, matter-warning, matter-success -->
-<button class="matter-button-contained matter-secondary">Button</button>
+<button class="matter-button-contained matter-secondary">BUTTON</button>
 
 <!-- Change the color of text; Classes: matter-primary-text, matter-secondary-text, -->
 <!-- matter-error-text, matter-warning-text, matter-success-text -->
