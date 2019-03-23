@@ -1,4 +1,6 @@
 .matter-button-contained {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-ontheme: var(--matter-ontheme-rgb, var(--matter-onprimary-rgb, 255, 255, 255));
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -11,8 +13,8 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-ontheme));
+    background-color: rgb(var(--matter-helper-theme));
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -41,7 +43,7 @@
 }
 
 .matter-button-contained::before {
-    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    background-color: rgb(var(--matter-helper-ontheme));
     transition: opacity 0.2s;
 }
 

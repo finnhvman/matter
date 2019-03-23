@@ -3,6 +3,8 @@
 /* Components */
 /* Button Contained */
 .matter-button-contained {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-ontheme: var(--matter-ontheme-rgb, var(--matter-onprimary-rgb, 255, 255, 255));
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -15,8 +17,8 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-ontheme));
+    background-color: rgb(var(--matter-helper-theme));
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -42,7 +44,7 @@
     opacity: 0;
 }
 .matter-button-contained::before {
-    background-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    background-color: rgb(var(--matter-helper-ontheme));
     transition: opacity 0.2s;
 }
 .matter-button-contained::after {
@@ -85,6 +87,7 @@
 }
 /* Button Outlined */
 .matter-button-outlined {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -99,7 +102,7 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -124,7 +127,7 @@
     opacity: 0;
 }
 .matter-button-outlined::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transition: opacity 0.2s;
 }
 .matter-button-outlined::after {
@@ -159,6 +162,7 @@
 }
 /* Button Text */
 .matter-button-text {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -172,7 +176,7 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -197,7 +201,7 @@
     opacity: 0;
 }
 .matter-button-text::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transition: opacity 0.2s;
 }
 .matter-button-text::after {
@@ -232,6 +236,7 @@
 }
 /* Progress Circular */
 .matter-progress-circular {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -241,7 +246,7 @@
     padding: 0.25em;
     width: 3em;
     height: 3em;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-size: 16px;
     overflow: hidden;
@@ -345,6 +350,7 @@
 }
 /* Progress Linear */
 .matter-progress-linear {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -352,8 +358,8 @@
     width: 160px;
     height: 4px;
     vertical-align: middle;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.12);
+    color: rgb(var(--matter-helper-theme));
+    background-color: rgba(var(--matter-helper-theme), 0.12);
 }
 .matter-progress-linear::-webkit-progress-bar {
     background-color: transparent;
@@ -427,6 +433,8 @@
 }
 /* Checkbox */
 .matter-checkbox {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-ontheme: var(--matter-ontheme-rgb, var(--matter-onprimary-rgb, 255, 255, 255));
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -498,16 +506,16 @@
 /* Checked, Indeterminate */
 .matter-checkbox > input:checked,
 .matter-checkbox > input:indeterminate {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
+    background-color: rgb(var(--matter-helper-theme));
 }
 .matter-checkbox > input:checked + span::before,
 .matter-checkbox > input:indeterminate + span::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
 }
 .matter-checkbox > input:checked + span::after,
 .matter-checkbox > input:indeterminate + span::after {
-    border-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    border-color: rgb(var(--matter-helper-ontheme, 255, 255, 255));
 }
 .matter-checkbox > input:indeterminate + span::after {
     border-left-width: 0;
@@ -526,7 +534,7 @@
 /* Active */
 .matter-checkbox:active > input,
 .matter-checkbox:active:hover > input {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
 }
 .matter-checkbox:active > input:checked {
     border-color: transparent;
@@ -557,6 +565,7 @@
 }
 /* Radio */
 .matter-radio {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -618,16 +627,16 @@
     border-radius: 50%;
     width: 10px;
     height: 10px;
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transform: translate(5px, 5px) scale(0);
     transition: transform 0.2s;
 }
 /* Checked */
 .matter-radio > input:checked {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
 }
 .matter-radio > input:checked + span::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
 }
 .matter-radio > input:checked + span::after {
     transform: translate(5px, 5px) scale(1);
@@ -647,7 +656,7 @@
 }
 /* Active */
 .matter-radio:active > input {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
 }
 .matter-radio:active > input + span::before,
 .matter-radio:active:hover > input + span::before {
@@ -673,6 +682,7 @@
 }
 /* Switch */
 .matter-switch {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -743,14 +753,14 @@
 }
 /* Checked */
 .matter-switch > input:checked {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 .matter-switch > input:checked + span::before {
     right: -5px;
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
 }
 .matter-switch > input:checked + span::after {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transform: translateX(16px);
 }
 /* Hover, Focus */
@@ -765,7 +775,7 @@
 }
 /* Active */
 .matter-switch:active > input {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 .matter-switch:active > input:checked {
     background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
@@ -782,7 +792,7 @@
     cursor: default;
 }
 .matter-switch > input:checked:disabled {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 .matter-switch > input:disabled + span {
     color: rgba(var(--matter-onsurface-rgb, 0, 0, 0, 0.38));
@@ -803,6 +813,7 @@
 }
 /* Textfield Standard */
 .matter-textfield-standard {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     position: relative;
     display: inline-block;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
@@ -828,7 +839,7 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    caret-color: rgb(var(--matter-helper-theme));
     transition: border-bottom 0.2s, background-color 0.2s;
 }
 /* Span */
@@ -858,7 +869,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transform-origin: bottom center;
     transform: scaleX(0);
     transition: transform 0.2s;
@@ -881,7 +892,7 @@
 }
 .matter-textfield-standard > input:focus + span,
 .matter-textfield-standard > textarea:focus + span {
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
 }
 .matter-textfield-standard > input:focus + span::after,
 .matter-textfield-standard > textarea:focus + span::after {
@@ -912,6 +923,7 @@
 }
 /* Textfield Filled */
 .matter-textfield-filled {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     position: relative;
     display: inline-block;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
@@ -938,7 +950,7 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    caret-color: rgb(var(--matter-helper-theme));
     transition: border-bottom 0.2s, background-color 0.2s;
 }
 /* Span */
@@ -968,7 +980,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transform-origin: bottom center;
     transform: scaleX(0);
     transition: transform 0.3s;
@@ -992,7 +1004,7 @@
 }
 .matter-textfield-filled > input:focus + span,
 .matter-textfield-filled > textarea:focus + span {
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
 }
 .matter-textfield-filled > input:focus + span::after,
 .matter-textfield-filled > textarea:focus + span::after {
@@ -1024,10 +1036,10 @@
 }
 /* Textfield Outlined */
 .matter-textfield-outlined {
-    --matter-safari-helper1: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
-    --matter-safari-helper2: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
-    --matter-safari-helper3: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.87);
-    --matter-safari-helper4: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-theme: rgb(var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243)));
+    --matter-helper-safari1: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    --matter-helper-safari2: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.6);
+    --matter-helper-safari3: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.87);
     position: relative;
     display: inline-block;
     padding-top: 6px;
@@ -1042,7 +1054,7 @@
     margin: 0;
     border-style: solid;
     border-width: 1px;
-    border-color: transparent var(--matter-safari-helper2) var(--matter-safari-helper2);
+    border-color: transparent var(--matter-helper-safari2) var(--matter-helper-safari2);
     border-radius: 4px;
     padding: 15px 13px 15px;
     width: 100%;
@@ -1054,12 +1066,12 @@
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    caret-color: var(--matter-helper-theme);
     transition: border 0.2s, box-shadow 0.2s;
 }
 .matter-textfield-outlined > input:not(:focus):placeholder-shown,
 .matter-textfield-outlined > textarea:not(:focus):placeholder-shown {
-    border-top-color: var(--matter-safari-helper2);
+    border-top-color: var(--matter-helper-safari2);
 }
 /* Span */
 .matter-textfield-outlined > input + span,
@@ -1090,7 +1102,7 @@
     display: block;
     box-sizing: border-box;
     margin-top: 6px;
-    border-top: solid 1px var(--matter-safari-helper2);
+    border-top: solid 1px var(--matter-helper-safari2);
     min-width: 10px;
     height: 8px;
     pointer-events: none;
@@ -1119,42 +1131,42 @@
 /* Hover */
 .matter-textfield-outlined:hover > input,
 .matter-textfield-outlined:hover > textarea {
-    border-color: transparent var(--matter-safari-helper3) var(--matter-safari-helper3);
+    border-color: transparent var(--matter-helper-safari3) var(--matter-helper-safari3);
 }
 .matter-textfield-outlined:hover > input + span::before,
 .matter-textfield-outlined:hover > textarea + span::before,
 .matter-textfield-outlined:hover > input + span::after,
 .matter-textfield-outlined:hover > textarea + span::after {
-    border-top-color: var(--matter-safari-helper3);
+    border-top-color: var(--matter-helper-safari3);
 }
 .matter-textfield-outlined:hover > input:not(:focus):placeholder-shown,
 .matter-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
-    border-color: var(--matter-safari-helper3);
+    border-color: var(--matter-helper-safari3);
 }
 /* Focus */
 .matter-textfield-outlined > input:focus,
 .matter-textfield-outlined > textarea:focus {
-    border-color: transparent var(--matter-safari-helper4) var(--matter-safari-helper4);
-    box-shadow: inset 1px 0 var(--matter-safari-helper4), inset -1px 0 var(--matter-safari-helper4), inset 0 -1px var(--matter-safari-helper4);
+    border-color: transparent var(--matter-helper-theme) var(--matter-helper-theme);
+    box-shadow: inset 1px 0 var(--matter-helper-theme), inset -1px 0 var(--matter-helper-theme), inset 0 -1px var(--matter-helper-theme);
     outline: none;
 }
 .matter-textfield-outlined > input:focus + span,
 .matter-textfield-outlined > textarea:focus + span {
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: var(--matter-helper-theme);
 }
 .matter-textfield-outlined > input:focus + span::before,
 .matter-textfield-outlined > input:focus + span::after,
 .matter-textfield-outlined > textarea:focus + span::before,
 .matter-textfield-outlined > textarea:focus + span::after {
-    border-top-color: var(--matter-safari-helper4) !important;
-    box-shadow: inset 0 1px var(--matter-safari-helper4);
+    border-top-color: var(--matter-helper-theme) !important;
+    box-shadow: inset 0 1px var(--matter-helper-theme);
 }
 /* Disabled */
 .matter-textfield-outlined > input:disabled,
 .matter-textfield-outlined > input:disabled + span,
 .matter-textfield-outlined > textarea:disabled,
 .matter-textfield-outlined > textarea:disabled + span {
-    border-color: transparent var(--matter-safari-helper1) var(--matter-safari-helper1) !important;
+    border-color: transparent var(--matter-helper-safari1) var(--matter-helper-safari1) !important;
     color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
     pointer-events: none;
 }
@@ -1162,13 +1174,13 @@
 .matter-textfield-outlined > input:disabled + span::after,
 .matter-textfield-outlined > textarea:disabled + span::before,
 .matter-textfield-outlined > textarea:disabled + span::after {
-    border-top-color: var(--matter-safari-helper1) !important;
+    border-top-color: var(--matter-helper-safari1) !important;
 }
 .matter-textfield-outlined > input:disabled:placeholder-shown,
 .matter-textfield-outlined > input:disabled:placeholder-shown + span,
 .matter-textfield-outlined > textarea:disabled:placeholder-shown,
 .matter-textfield-outlined > textarea:disabled:placeholder-shown + span {
-    border-top-color: var(--matter-safari-helper1) !important;
+    border-top-color: var(--matter-helper-safari1) !important;
 }
 .matter-textfield-outlined > input:disabled:placeholder-shown + span::before,
 .matter-textfield-outlined > input:disabled:placeholder-shown + span::after,
@@ -1269,6 +1281,44 @@
     }
 }
 /* Utilities */
+/* Colors */
+/* Components */
+.matter-primary {
+    --matter-theme-rgb: var(--matter-primary-rgb, 33, 150, 243);
+    --matter-ontheme-rgb: var(--matter-onprimary-rgb, 255, 255, 255);
+}
+.matter-secondary {
+    --matter-theme-rgb: var(--matter-secondary-rgb, 102, 0, 238);
+    --matter-ontheme-rgb: var(--matter-onsecondary-rgb, 255, 255, 255);
+}
+.matter-error {
+    --matter-theme-rgb: var(--matter-warning-rgb, 238, 0, 0);
+    --matter-ontheme-rgb: var(--matter-onwarning-rgb, 255, 255, 255);
+}
+.matter-warning {
+    --matter-theme-rgb: var(--matter-warning-rgb, 238, 102, 0);
+    --matter-ontheme-rgb: var(--matter-onwarning-rgb, 255, 255, 255);
+}
+.matter-success {
+    --matter-theme-rgb: var(--matter-success-rgb, 17, 136, 34);
+    --matter-ontheme-rgb: var(--matter-onsuccess-rgb, 255, 255, 255);
+}
+/* Text */
+.matter-primary-text {
+    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+}
+.matter-secondary-text {
+    color: rgb(var(--matter-secondary-rgb, 102, 0, 238));
+}
+.matter-error-text {
+    color: rgb(var(--matter-warning-rgb, 238, 0, 0));
+}
+.matter-warning-text {
+    color: rgb(var(--matter-warning-rgb, 238, 102, 0));
+}
+.matter-success-text {
+    color: rgb(var(--matter-success-rgb, 17, 136, 34));
+}
 /* Typography */
 .matter-h1 {
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);

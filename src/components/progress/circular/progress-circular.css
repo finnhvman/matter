@@ -1,4 +1,5 @@
 .matter-progress-circular {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -8,7 +9,7 @@
     padding: 0.25em;
     width: 3em;
     height: 3em;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-size: 16px;
     overflow: hidden;

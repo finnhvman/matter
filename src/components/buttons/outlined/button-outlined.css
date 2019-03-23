@@ -1,4 +1,5 @@
 .matter-button-outlined {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -13,7 +14,7 @@
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    color: rgb(var(--matter-helper-theme));
     background-color: transparent;
     font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 14px;
@@ -41,7 +42,7 @@
 }
 
 .matter-button-outlined::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transition: opacity 0.2s;
 }
 

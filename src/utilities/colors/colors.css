@@ -1,0 +1,46 @@
+/* Components */
+.matter-primary {
+    --matter-theme-rgb: var(--matter-primary-rgb, 33, 150, 243);
+    --matter-ontheme-rgb: var(--matter-onprimary-rgb, 255, 255, 255);
+}
+
+.matter-secondary {
+    --matter-theme-rgb: var(--matter-secondary-rgb, 102, 0, 238);
+    --matter-ontheme-rgb: var(--matter-onsecondary-rgb, 255, 255, 255);
+}
+
+.matter-error {
+    --matter-theme-rgb: var(--matter-warning-rgb, 238, 0, 0);
+    --matter-ontheme-rgb: var(--matter-onwarning-rgb, 255, 255, 255);
+}
+
+.matter-warning {
+    --matter-theme-rgb: var(--matter-warning-rgb, 238, 102, 0);
+    --matter-ontheme-rgb: var(--matter-onwarning-rgb, 255, 255, 255);
+}
+
+.matter-success {
+    --matter-theme-rgb: var(--matter-success-rgb, 17, 136, 34);
+    --matter-ontheme-rgb: var(--matter-onsuccess-rgb, 255, 255, 255);
+}
+
+/* Text */
+.matter-primary-text {
+    color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+}
+
+.matter-secondary-text {
+    color: rgb(var(--matter-secondary-rgb, 102, 0, 238));
+}
+
+.matter-error-text {
+    color: rgb(var(--matter-warning-rgb, 238, 0, 0));
+}
+
+.matter-warning-text {
+    color: rgb(var(--matter-warning-rgb, 238, 102, 0));
+}
+
+.matter-success-text {
+    color: rgb(var(--matter-success-rgb, 17, 136, 34));
+}

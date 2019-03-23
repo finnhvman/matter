@@ -38,6 +38,17 @@
 <button class="matter-button-text">Text</button>
 ```
 
+### Colors
+```html
+<!-- Change the color of components -->
+<!-- Classes: matter-primary, matter-secondary, matter-error, matter-warning, matter-success -->
+<button class="matter-button-contained matter-secondary">Button</button>
+
+<!-- Change the color of text; Classes: matter-primary-text, matter-secondary-text, -->
+<!-- matter-error-text, matter-warning-text, matter-success-text -->
+<p class="matter-secondary-text">I am a paragraph</p>
+```
+
 ### Progress Indicators
 ```html
 <!-- Progress Markup (indeterminate); Classes: matter-progress-linear, matter-progress-circular -->
@@ -119,6 +130,7 @@ Click the link of a component in the next section to find more examples of its u
   * [x] [Contained](./src/components/buttons/contained)
   * [x] [Outlined](./src/components/buttons/outlined)
   * [x] [Text](./src/components/buttons/text)
+* [x] [Colors](./src/utilities/colors)
 * [x] Progress Indicators
   * [x] [Circular](./src/components/progress/circular)
   * [x] [Linear](./src/components/progress/linear)

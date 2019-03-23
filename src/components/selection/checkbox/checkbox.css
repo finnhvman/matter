@@ -1,4 +1,6 @@
 .matter-checkbox {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-ontheme: var(--matter-ontheme-rgb, var(--matter-onprimary-rgb, 255, 255, 255));
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -75,18 +77,18 @@
 /* Checked, Indeterminate */
 .matter-checkbox > input:checked,
 .matter-checkbox > input:indeterminate {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
+    background-color: rgb(var(--matter-helper-theme));
 }
 
 .matter-checkbox > input:checked + span::before,
 .matter-checkbox > input:indeterminate + span::before {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
 }
 
 .matter-checkbox > input:checked + span::after,
 .matter-checkbox > input:indeterminate + span::after {
-    border-color: rgb(var(--matter-onprimary-rgb, 255, 255, 255));
+    border-color: rgb(var(--matter-helper-ontheme, 255, 255, 255));
 }
 
 .matter-checkbox > input:indeterminate + span::after {
@@ -110,7 +112,7 @@
 /* Active */
 .matter-checkbox:active > input,
 .matter-checkbox:active:hover > input {
-    border-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    border-color: rgb(var(--matter-helper-theme));
 }
 
 .matter-checkbox:active > input:checked {

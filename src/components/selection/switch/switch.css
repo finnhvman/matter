@@ -1,4 +1,5 @@
 .matter-switch {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -74,16 +75,16 @@
 
 /* Checked */
 .matter-switch > input:checked {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 
 .matter-switch > input:checked + span::before {
     right: -5px;
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
 }
 
 .matter-switch > input:checked + span::after {
-    background-color: rgb(var(--matter-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--matter-helper-theme));
     transform: translateX(16px);
 }
 
@@ -102,7 +103,7 @@
 
 /* Active */
 .matter-switch:active > input {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 
 .matter-switch:active > input:checked {
@@ -123,7 +124,7 @@
 }
 
 .matter-switch > input:checked:disabled {
-    background-color: rgba(var(--matter-primary-rgb, 33, 150, 243), 0.6);
+    background-color: rgba(var(--matter-helper-theme), 0.6);
 }
 
 .matter-switch > input:disabled + span {
