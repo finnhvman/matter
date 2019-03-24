@@ -27,15 +27,19 @@
 
 ### Buttons
 ```html
-<!-- Button Markup; Classes: matter-button-contained, matter-button-outlined, matter-button-text -->
+<!-- Button Markup; Classes: matter-button-contained, matter-button-outlined, matter-button-text, -->
+<!-- matter-button-unelevated -->
 <button class="matter-button-contained">BUTTON</button>
 
-<!-- Button Examples: Contained, Outlined and Text Buttons -->
+<!-- Button Examples: Contained, Outlined, Text and Unelevated Buttons -->
 <button class="matter-button-contained">CONTAINED</button>
 
 <button class="matter-button-outlined">OUTLINED</button>
 
 <button class="matter-button-text">TEXT</button>
+
+<button class="matter-button-unelevated">UNELEVATED</button>
+
 ```
 
 ### Colors
@@ -130,6 +134,7 @@ Click the link of a component in the next section to find more examples of its u
   * [x] [Contained](./src/components/buttons/contained)
   * [x] [Outlined](./src/components/buttons/outlined)
   * [x] [Text](./src/components/buttons/text)
+  * [x] [Unelevated](./src/components/buttons/unelevated)
 * [x] [Colors](./src/utilities/colors)
 * [x] Progress Indicators
   * [x] [Circular](./src/components/progress/circular)

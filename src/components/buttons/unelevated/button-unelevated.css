@@ -1,0 +1,82 @@
+.matter-button-unelevated {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-ontheme: var(--matter-ontheme-rgb, var(--matter-onprimary-rgb, 255, 255, 255));
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    min-width: 64px;
+    height: 36px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    color: rgb(var(--matter-helper-ontheme));
+    background-color: rgb(var(--matter-helper-theme));
+    font-family: var(--matter-font-family, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    outline: none;
+    cursor: pointer;
+}
+
+.matter-button-unelevated::-moz-focus-inner {
+    border: none;
+}
+
+/* Highlight, Ripple */
+.matter-button-unelevated::before,
+.matter-button-unelevated::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.matter-button-unelevated::before {
+    background-color: rgb(var(--matter-helper-ontheme));
+    transition: opacity 0.2s;
+}
+
+.matter-button-unelevated::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
+    transition: opacity 1s, background-size 0.5s;
+}
+
+/* Hover, Focus */
+.matter-button-unelevated:hover::before {
+    opacity: 0.08;
+}
+
+.matter-button-unelevated:focus::before {
+    opacity: 0.24;
+}
+
+.matter-button-unelevated:hover:focus::before {
+    opacity: 0.32;
+}
+
+/* Active */
+.matter-button-unelevated:active::after {
+    opacity: 0.32;
+    background-size: 100% 100%;
+    transition: background-size 0s;
+}
+
+/* Disabled */
+.matter-button-unelevated:disabled {
+    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.12);
+    cursor: initial;
+}
+
+.matter-button-unelevated:disabled::before,
+.matter-button-unelevated:disabled::after {
+    opacity: 0;
+}
