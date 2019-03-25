@@ -1,0 +1,26 @@
+.matter-link {
+    --matter-helper-theme: var(--matter-theme-rgb, var(--matter-primary-rgb, 33, 150, 243));
+    --matter-helper-safari1: rgba(var(--matter-helper-theme), 0.12);
+    border-radius: 4px;
+    color: rgb(var(--matter-helper-theme));
+    text-decoration: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Hover */
+.matter-link:hover {
+    text-decoration: underline;
+}
+
+/* Focus */
+.matter-link:focus {
+    background-color: var(--matter-helper-safari1);
+    box-shadow: 0 0 0 0.16em var(--matter-helper-safari1);
+    outline: none;
+}
+
+/* Active */
+.matter-link:active {
+    background-color: transparent;
+    box-shadow: none;
+}

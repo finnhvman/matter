@@ -53,6 +53,12 @@
 <p class="matter-secondary-text">I am a paragraph</p>
 ```
 
+### Links
+```html
+<!-- Link Markup (does not override font properties); Class: matter-link -->
+<a class="matter-link" href="https://github.com/finnhvman/matter">Link</a>
+```
+
 ### Progress Indicators
 ```html
 <!-- Progress Markup (indeterminate); Classes: matter-progress-linear, matter-progress-circular -->
@@ -136,6 +142,7 @@ Click the link of a component in the next section to find more examples of its u
   * [x] [Text](./src/components/buttons/text)
   * [x] [Unelevated](./src/components/buttons/unelevated)
 * [x] [Colors](./src/utilities/colors)
+* [x] [Links](./src/components/links)
 * [x] Progress Indicators
   * [x] [Circular](./src/components/progress/circular)
   * [x] [Linear](./src/components/progress/linear)

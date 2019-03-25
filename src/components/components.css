@@ -11,6 +11,9 @@
 /* Button Text */
 @import "./buttons/text/button-text.css";
 
+/* Link */
+@import "./links/link.css";
+
 /* Progress Circular */
 @import "./progress/circular/progress-circular.css";
 
