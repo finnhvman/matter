@@ -15,11 +15,11 @@
 1. Get Matter in one of the following ways:<br/><br/>
     **Normal build** from CDN (include this in `<head>`):
     ```html
-    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.1.0.css" rel="stylesheet">
+    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.2.0.css" rel="stylesheet">
     ```
     **Minified build** from CDN (include this in `<head>`):
     ```html
-    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.1.0.min.css" rel="stylesheet">
+    <link href="https://res.cloudinary.com/finnhvman/raw/upload/matter/matter-0.2.0.min.css" rel="stylesheet">
     ```
     **Download a build** from the assets of a release in [Releases](https://github.com/finnhvman/matter/releases), and include it in your project
 
@@ -206,7 +206,7 @@ Matter is built with theming in mind. Its components can be customized by specif
 
 ## 💬 Contact
 
-If you have questions, feedback or anything to share related to the project, then you can contact me via:
+If you have questions, feedback or anything to share you can get in touch via:
 * Twitter [@finnhvman](https://twitter.com/finnhvman)
 * Spectrum [@finnhvman](https://spectrum.chat/users/finnhvman)
 * or [submit an issue](https://github.com/finnhvman/matter/issues)
