@@ -10,8 +10,8 @@
 }
 
 .matter-error {
-    --matter-theme-rgb: var(--matter-warning-rgb, 238, 0, 0);
-    --matter-ontheme-rgb: var(--matter-onwarning-rgb, 255, 255, 255);
+    --matter-theme-rgb: var(--matter-error-rgb, 238, 0, 0);
+    --matter-ontheme-rgb: var(--matter-error-rgb, 255, 255, 255);
 }
 
 .matter-warning {
@@ -34,7 +34,7 @@
 }
 
 .matter-error-text {
-    color: rgb(var(--matter-warning-rgb, 238, 0, 0));
+    color: rgb(var(--matter-error-rgb, 238, 0, 0));
 }
 
 .matter-warning-text {
