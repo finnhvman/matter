@@ -64,6 +64,7 @@
     position: absolute;
     top: 3px;
     left: 1px;
+    box-sizing: content-box;
     width: 10px;
     height: 5px;
     border: solid 2px transparent;

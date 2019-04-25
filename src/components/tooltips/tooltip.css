@@ -29,6 +29,7 @@
     left: 0;
     right: 0;
     display: inline-block;
+    box-sizing: content-box;
     margin: 0 -100vw;
     border: solid 8px transparent;
     border-radius: 12px;
