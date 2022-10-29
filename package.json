@@ -16,7 +16,7 @@
   "devDependencies": {
     "cssnano": "4.1.10",
     "jasmine": "3.4.0",
-    "karma": "4.2.0",
+    "karma": "6.4.1",
     "karma-chrome-launcher": "3.0.0",
     "karma-firefox-launcher": "1.1.0",
     "karma-html2js-preprocessor": "1.1.0",
